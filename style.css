@@ -196,7 +196,7 @@ footer {
 }
 
 /* =========================
-   MOBILE SWIPE CAROUSEL (FIXED 720px ISSUE)
+   MOBILE CENTERED SWIPE CAROUSEL (FIXED)
 ========================= */
 @media (max-width: 600px) {
 
@@ -222,7 +222,7 @@ footer {
     font-size: 15px;
   }
 
-  /* swipe carousel container */
+  /* CAROUSEL CONTAINER */
   .card-grid {
     display: flex;
     overflow-x: auto;
@@ -233,12 +233,12 @@ footer {
     gap: var(--space-md);
     padding: var(--space-md);
 
-    align-items: stretch;
+    align-items: center;
 
     -webkit-overflow-scrolling: touch;
   }
 
-  /* FIXED CARD SIZE FOR 720px PHONES */
+  /* CENTERED CARD FIX */
   .card {
     flex: 0 0 78%;
     max-width: 320px;
@@ -246,16 +246,17 @@ footer {
     scroll-snap-align: center;
     scroll-snap-stop: always;
 
-    margin: 0 auto;
+    margin: 0;
 
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
 
-    transform: none !important;
+    transform-origin: center;
   }
 
-  /* spacing helper for last card centering */
+  /* CENTER BUFFER (CRITICAL FIX) */
+  .card-grid::before,
   .card-grid::after {
     content: "";
     flex: 0 0 10%;
