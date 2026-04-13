@@ -186,7 +186,7 @@ footer {
 }
 
 /* =========================
-   MOBILE CAROUSEL
+   MOBILE CAROUSEL + LAYOUT FIX
 ========================= */
 @media (max-width: 600px) {
 
@@ -198,6 +198,23 @@ footer {
     gap: 8px;
   }
 
+  /* PAGE LAYOUT FIX (FOOTER STAYS DOWN) */
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container {
+    flex: 1;
+  }
+
+  footer {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  /* CAROUSEL */
   .card-grid {
     display: flex;
     overflow-x: auto;
@@ -210,13 +227,17 @@ footer {
   .card {
     flex: 0 0 70%;
     max-width: 280px;
+
     scroll-snap-align: center;
     scroll-snap-stop: always;
+
     margin: 0 auto;
+
     overflow-wrap: break-word;
   }
 
   .card-grid::-webkit-scrollbar {
     display: none;
   }
+}
 }
