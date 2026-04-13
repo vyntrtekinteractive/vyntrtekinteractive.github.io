@@ -1,12 +1,23 @@
-
 :root {
+  --space-xs: 6px;
   --space-sm: 12px;
   --space-md: 20px;
   --space-lg: 32px;
+  --space-xl: 48px;
+
   --radius-md: 16px;
+
+  --text-base: 16px;
+  --text-small: 14px;
 }
 
-/* PREVENT HORIZONTAL SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   GLOBAL FIX (IMPORTANT)
+========================= */
 html, body {
   overflow-x: hidden;
 }
@@ -17,31 +28,23 @@ html, body {
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0f172a;
+  background: radial-gradient(circle at top, #111c33 0%, #0f172a 60%);
   color: #e2e8f0;
 
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-  animation: fadeIn 0.5s ease-out;
+  font-size: var(--text-base);
+  line-height: 1.6;
+
+  animation: fadeIn 0.6s ease-out;
 }
 
 /* =========================
-   ANIMATIONS
+   ANIMATION
 ========================= */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes cardFade {
   from {
     opacity: 0;
     transform: translateY(10px);
@@ -59,114 +62,75 @@ body {
   text-align: center;
   font-size: 12px;
   color: #94a3b8;
-  padding: 6px 0;
+  padding: 8px 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.02);
 }
 
 /* =========================
-   HEADER
-========================= */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 16px;
-  background: #0b1220;
-}
-
-/* =========================
-   LOGO
-========================= */
-.logo {
-  width: 150px;
-  height: auto;
-  cursor: pointer;
-}
-
-/* =========================
-   NAV
-========================= */
-.nav {
-  display: flex;
-  gap: 12px;
-}
-
-.nav a {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.nav a:hover {
-  color: #60a5fa;
-}
-
-/* =========================
-   HERO (FIXED)
+   HERO (FIXED TEXT OVERFLOW)
 ========================= */
 .hero {
   text-align: center;
-  padding: 20px;
+  padding: 10px var(--space-md) 20px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  margin-bottom: var(--space-sm);
 }
 
 .hero p {
-  max-width: 100%;
-  margin: 0 auto;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: auto;
 
-  padding: 0 12px;
-
-  text-align: center;
-
-  /* ✅ FIX FOR MOBILE TEXT BREAKING */
+  /* FIX FOR MOBILE TEXT BREAKING */
+  padding: 0 10px;
+  box-sizing: border-box;
   overflow-wrap: anywhere;
   word-break: break-word;
   white-space: normal;
-  box-sizing: border-box;
 }
 
 /* =========================
-   UNIFIED CAROUSEL
+   DESKTOP GRID (STABLE)
 ========================= */
 .card-grid {
-  display: flex;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
 
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-
-  padding: 20px;
-  margin: 0 auto;
-
-  justify-content: center;
-  max-width: 100%;
+  padding: var(--space-md);
+  max-width: 900px;
+  margin: auto;
 }
 
 /* =========================
    CARD
 ========================= */
 .card {
-  flex: 0 0 260px;
-
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
 
   padding: var(--space-md);
+  transition: all 0.25s ease;
+
+  animation: fadeIn 0.9s ease-out;
 
   text-align: center;
-
-  scroll-snap-align: center;
-
-  animation: cardFade 0.6s ease;
-  transition: 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  border-color: rgba(96,165,250,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .card h3 {
   color: #60a5fa;
+  margin-top: 0;
 }
 
 .card a {
@@ -174,29 +138,18 @@ body {
   text-decoration: none;
 }
 
+.card a:hover {
+  color: #60a5fa;
+}
+
 /* =========================
    CONTENT
 ========================= */
 .container {
-  padding: 20px;
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
   flex: 1;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-/* =========================
-   HEADINGS + EMAIL
-========================= */
-.container h1 {
-  color: #60a5fa;
-  margin-bottom: 12px;
-}
-
-.email {
-  color: #60a5fa;
-  font-weight: bold;
 }
 
 /* =========================
@@ -204,31 +157,64 @@ body {
 ========================= */
 footer {
   text-align: center;
-  font-size: 13px;
+  font-size: var(--text-small);
   color: #64748b;
-  padding: 15px;
+  padding: var(--space-lg) 0;
+
+  border-top: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.01);
+
+  margin-top: auto;
 }
 
 /* =========================
-   MOBILE ADJUSTMENT
+   MOBILE SWIPE CAROUSEL (STABLE)
 ========================= */
 @media (max-width: 600px) {
 
-  .logo {
-    width: 120px;
+  body {
+    font-size: 16px;
   }
 
-  .nav {
-    gap: 8px;
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .card-grid {
+    display: flex;
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    gap: var(--space-md);
+    padding: var(--space-md);
+
+    -webkit-overflow-scrolling: touch;
+
+    align-items: stretch;
   }
 
   .card {
     flex: 0 0 75%;
     max-width: 280px;
+
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+
+    margin: 0;
+    transform: none !important;
   }
 
-  .card-grid {
-    padding-left: 16px;
-    padding-right: 16px;
+  .card-grid::-webkit-scrollbar {
+    display: none;
   }
 }
