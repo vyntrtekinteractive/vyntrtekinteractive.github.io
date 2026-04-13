@@ -1,3 +1,4 @@
+
 :root {
   --space-sm: 12px;
   --space-md: 20px;
@@ -23,7 +24,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 
-  /* ✅ animation moved here (correct) */
   animation: fadeIn 0.5s ease-out;
 }
 
@@ -115,13 +115,16 @@ body {
 }
 
 /* =========================
-   GRID
+   DESKTOP GRID
 ========================= */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-md);
   padding: var(--space-md);
+
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* =========================
@@ -133,7 +136,6 @@ body {
   border-radius: var(--radius-md);
   padding: var(--space-md);
 
-  /* ✅ animation applied correctly */
   animation: cardFade 0.6s ease;
   transition: 0.2s ease;
 }
@@ -186,7 +188,7 @@ footer {
 }
 
 /* =========================
-   MOBILE CAROUSEL + LAYOUT FIX
+   MOBILE CAROUSEL FIX
 ========================= */
 @media (max-width: 600px) {
 
@@ -198,23 +200,6 @@ footer {
     gap: 8px;
   }
 
-  /* PAGE LAYOUT FIX (FOOTER STAYS DOWN) */
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .container {
-    flex: 1;
-  }
-
-  footer {
-    margin-top: auto;
-    text-align: center;
-  }
-
-  /* CAROUSEL */
   .card-grid {
     display: flex;
     overflow-x: auto;
@@ -231,13 +216,10 @@ footer {
     scroll-snap-align: center;
     scroll-snap-stop: always;
 
-    margin: 0 auto;
-
     overflow-wrap: break-word;
   }
 
   .card-grid::-webkit-scrollbar {
     display: none;
   }
-}
 }
