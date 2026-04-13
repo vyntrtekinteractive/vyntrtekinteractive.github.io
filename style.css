@@ -1,12 +1,10 @@
 
 :root {
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
+  --space-xs: 6px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 48px;
 
   --radius-md: 16px;
 
@@ -33,6 +31,22 @@ body {
 
   font-size: var(--text-base);
   line-height: 1.6;
+
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================
@@ -42,9 +56,7 @@ body {
   text-align: center;
   font-size: 12px;
   color: #94a3b8;
-
-  padding: var(--space-2) 0;
-
+  padding: 8px 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   background: rgba(255,255,255,0.02);
 }
@@ -57,7 +69,7 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-sm) var(--space-md);
 
   background: rgba(11, 18, 32, 0.85);
   backdrop-filter: blur(10px);
@@ -67,12 +79,15 @@ body {
 .nav a {
   color: #e2e8f0;
   text-decoration: none;
-  margin-left: var(--space-3);
+  margin-left: 10px;
   font-size: 14px;
+
+  transition: 0.2s ease;
 }
 
 .nav a:hover {
   color: #60a5fa;
+  transform: translateY(-1px);
 }
 
 .brand {
@@ -85,9 +100,11 @@ body {
 ========================= */
 .logo {
   display: block;
-  margin: var(--space-5) auto var(--space-3);
+  margin: var(--space-lg) auto var(--space-md);
   width: 40%;
   height: auto;
+
+  animation: fadeIn 0.8s ease-out;
 }
 
 /* =========================
@@ -95,12 +112,12 @@ body {
 ========================= */
 .hero {
   text-align: center;
-  padding: var(--space-5) var(--space-4) var(--space-6);
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
 }
 
 .hero h1 {
   font-size: 28px;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-sm);
 }
 
 .hero p {
@@ -115,9 +132,9 @@ body {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-md);
 
-  padding: var(--space-5);
+  padding: var(--space-md);
   max-width: 900px;
   margin: auto;
 }
@@ -127,7 +144,16 @@ body {
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
 
-  padding: var(--space-5);
+  padding: var(--space-md);
+  transition: all 0.25s ease;
+
+  animation: fadeIn 0.9s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(96,165,250,0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .card h3 {
@@ -140,13 +166,17 @@ body {
   text-decoration: none;
 }
 
+.card a:hover {
+  color: #60a5fa;
+}
+
 /* =========================
    CONTENT
 ========================= */
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-4);
+  padding: var(--space-lg) var(--space-md);
   flex: 1;
 }
 
@@ -157,8 +187,7 @@ footer {
   text-align: center;
   font-size: var(--text-small);
   color: #64748b;
-
-  padding: var(--space-6) 0;
+  padding: var(--space-lg) 0;
 
   border-top: 1px solid rgba(255,255,255,0.05);
   background: rgba(255,255,255,0.01);
@@ -167,13 +196,17 @@ footer {
 }
 
 /* =========================
-   MOBILE CENTERED CAROUSEL (FIXED)
+   MOBILE SWIPE CAROUSEL (FIXED 720px ISSUE)
 ========================= */
 @media (max-width: 600px) {
 
+  body {
+    font-size: 16px;
+  }
+
   .nav {
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-sm);
     text-align: center;
   }
 
@@ -189,7 +222,7 @@ footer {
     font-size: 15px;
   }
 
-  /* CAROUSEL CONTAINER */
+  /* swipe carousel container */
   .card-grid {
     display: flex;
     overflow-x: auto;
@@ -197,28 +230,35 @@ footer {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 
-    gap: var(--space-5);
-    padding: var(--space-5);
+    gap: var(--space-md);
+    padding: var(--space-md);
 
-    justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
 
     -webkit-overflow-scrolling: touch;
   }
 
-  /* CARD (30px REDUCED WIDTH + CENTER SNAP) */
+  /* FIXED CARD SIZE FOR 720px PHONES */
   .card {
-    flex: 0 0 calc(78% - 30px);
-    max-width: 290px;
+    flex: 0 0 78%;
+    max-width: 320px;
 
     scroll-snap-align: center;
     scroll-snap-stop: always;
 
-    margin: 0;
+    margin: 0 auto;
 
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
+
+    transform: none !important;
+  }
+
+  /* spacing helper for last card centering */
+  .card-grid::after {
+    content: "";
+    flex: 0 0 10%;
   }
 
   .card-grid::-webkit-scrollbar {
