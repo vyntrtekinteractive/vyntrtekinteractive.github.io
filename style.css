@@ -5,20 +5,14 @@
   --radius-md: 16px;
 }
 
-
-/* PAGE HEADINGS (Privacy, Terms, Deletion) */
-.container h1 {
-  color: #60a5fa;
-  margin-bottom: 12px;
+/* PREVENT HORIZONTAL SCROLL */
+html, body {
+  overflow-x: hidden;
 }
 
-/* EMAIL STYLE (Deletion page) */
-.email {
-  color: #60a5fa;
-  font-weight: bold;
-}
-
-/* BASE */
+/* =========================
+   BASE
+========================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -28,9 +22,39 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  /* ✅ animation moved here (correct) */
+  animation: fadeIn 0.5s ease-out;
 }
 
-/* TRUST BAR */
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TRUST BAR
+========================= */
 .trust-bar {
   text-align: center;
   font-size: 12px;
@@ -39,7 +63,9 @@ body {
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .header {
   display: flex;
   justify-content: space-between;
@@ -48,14 +74,18 @@ body {
   background: #0b1220;
 }
 
-/* LOGO */
+/* =========================
+   LOGO
+========================= */
 .logo {
   width: 150px;
   height: auto;
   cursor: pointer;
 }
 
-/* NAV */
+/* =========================
+   NAV
+========================= */
 .nav {
   display: flex;
   gap: 12px;
@@ -71,13 +101,22 @@ body {
   color: #60a5fa;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .hero {
   text-align: center;
   padding: 20px;
 }
 
-/* GRID */
+.hero p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* =========================
+   GRID
+========================= */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -85,12 +124,22 @@ body {
   padding: var(--space-md);
 }
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 .card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
   padding: var(--space-md);
+
+  /* ✅ animation applied correctly */
+  animation: cardFade 0.6s ease;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card h3 {
@@ -102,15 +151,33 @@ body {
   text-decoration: none;
 }
 
-/* CONTENT */
+/* =========================
+   CONTENT
+========================= */
 .container {
   padding: 20px;
   max-width: 800px;
   margin: auto;
   flex: 1;
+  box-sizing: border-box;
 }
 
-/* FOOTER */
+/* =========================
+   HEADINGS + EMAIL
+========================= */
+.container h1 {
+  color: #60a5fa;
+  margin-bottom: 12px;
+}
+
+.email {
+  color: #60a5fa;
+  font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
 footer {
   text-align: center;
   font-size: 13px;
@@ -118,52 +185,9 @@ footer {
   padding: 15px;
 }
 
-/* existing styles above... */
-
-
 /* =========================
-   ANIMATIONS (ADD HERE)
+   MOBILE CAROUSEL
 ========================= */
-
-body {
-  animation: fadeIn 0.5s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card {
-  animation: cardFade 0.6s ease;
-}
-
-@keyframes cardFade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  transition: 0.2s ease;
-}
-
-
-}
-
-/* MOBILE CAROUSEL */
 @media (max-width: 600px) {
 
   .logo {
@@ -179,6 +203,8 @@ body {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: var(--space-md);
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .card {
