@@ -202,11 +202,11 @@ footer {
   margin-top: auto;
 }
 
-/* =========================
-   MOBILE SWIPE CAROUSEL (STABLE)
-========================= */
 @media (max-width: 600px) {
 
+  /* =========================
+     BASE MOBILE TYPOGRAPHY
+  ========================= */
   body {
     font-size: 16px;
   }
@@ -219,6 +219,42 @@ footer {
     font-size: 15px;
   }
 
+  /* =========================
+     MOBILE HEADER FIX (SAFE LAYOUT)
+  ========================= */
+  .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 12px;
+  }
+
+  .logo {
+    width: 130px;
+    margin: 0;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+    gap: 8px;
+
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .nav a {
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  /* =========================
+     SWIPE CAROUSEL (UNCHANGED)
+  ========================= */
   .card-grid {
     display: flex;
     overflow-x: auto;
