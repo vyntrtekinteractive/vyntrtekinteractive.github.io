@@ -240,7 +240,7 @@ footer {
 
   /* FIXED CARD SIZE FOR 720px PHONES */
   .card {
-    flex: 0 0 70%;
+    flex: 0 0 60%;
     max-width: 320px;
 
     scroll-snap-align: center;
