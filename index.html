@@ -1,20 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vintrtek Interactive</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vintrtek Interactive - Policy Center</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #0b1220;
+  position: sticky;
+  top: 0;
+}
+
+.brand {
+  font-weight: bold;
+  color: #60a5fa;
+}
+
+.nav a {
+  color: #e2e8f0;
+  text-decoration: none;
+  margin-left: 12px;
+  font-size: 13px;
+}
+
+.nav a:hover {
+  color: #60a5fa;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #111827;
+  padding: 18px;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo {
+  display: block;
+  margin: 20px auto 10px;
+  width: 110px;
+  border-radius: 16px;
+}
+
+h2 {
+  color: #60a5fa;
+}
+
+p, li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  margin: 30px 0;
+}
+</style>
+
 </head>
 
-<body style="font-family:Arial;background:#0f172a;color:white;text-align:center;padding:40px">
+<body>
 
-  <h1>Vintrtek Interactive</h1>
-  <p>Policy Center</p>
+<div class="nav">
+  <div class="brand">Vintrtek Interactive</div>
+  <div>
+    <a href="#privacy">Privacy</a>
+    <a href="#deletion">Deletion</a>
+    <a href="#terms">Terms</a>
+  </div>
+</div>
 
-  <p>
-    <a href="#">Privacy Policy</a> | 
-    <a href="#">Data Deletion</a> | 
-    <a href="#">Terms</a>
-  </p>
+<img src="logo.png" class="logo" alt="logo">
+
+<h1>Policy Center</h1>
+
+<div class="container">
+
+  <div class="card" id="privacy">
+    <h2>Privacy Policy</h2>
+    <p>Vintrtek Interactive develops hypercasual games for Facebook Instant Games.</p>
+
+    <p>We do not directly collect or store personal user data.</p>
+
+    <h3>Third-Party Services</h3>
+    <p>Our games use Facebook Audience Network for advertising (rewarded and interstitial ads).</p>
+
+    <p>These services may collect:</p>
+    <ul>
+      <li>Device information</li>
+      <li>Gameplay interactions</li>
+      <li>Advertising identifiers</li>
+    </ul>
+
+    <p>This data is handled by Facebook under their own policies.</p>
+  </div>
+
+  <div class="card" id="deletion">
+    <h2>Data Deletion</h2>
+    <p>To request deletion of any related data, contact:</p>
+    <p><b>vintrtek@gmail.com</b></p>
+    <p>We do not store personal data directly.</p>
+  </div>
+
+  <div class="card" id="terms">
+    <h2>Terms of Service</h2>
+    <p>Users agree to use Vintrtek Interactive games under Facebook Instant Games platform rules.</p>
+  </div>
+
+</div>
+
+<footer>
+© 2026 Vintrtek Interactive. All rights reserved.
+</footer>
 
 </body>
 </html>
