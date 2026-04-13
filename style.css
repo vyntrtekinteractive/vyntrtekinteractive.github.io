@@ -33,40 +33,10 @@ body {
 
   font-size: var(--text-base);
   line-height: 1.6;
-
-  animation: fadeIn 0.6s ease-out;
 }
 
 /* =========================
-   ANIMATION
-========================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   TRUST BAR
-========================= */
-.trust-bar {
-  text-align: center;
-  font-size: 12px;
-  color: #94a3b8;
-
-  padding: var(--space-2) 0;
-
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  background: rgba(255,255,255,0.02);
-}
-
-/* =========================
-   NAVBAR
+   NAV
 ========================= */
 .nav {
   display: flex;
@@ -74,10 +44,8 @@ body {
   align-items: center;
 
   padding: var(--space-3) var(--space-5);
-
   background: rgba(11, 18, 32, 0.85);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .nav a {
@@ -85,13 +53,6 @@ body {
   text-decoration: none;
   margin-left: var(--space-3);
   font-size: 14px;
-
-  transition: 0.2s ease;
-}
-
-.nav a:hover {
-  color: #60a5fa;
-  transform: translateY(-1px);
 }
 
 .brand {
@@ -100,37 +61,29 @@ body {
 }
 
 /* =========================
-   LOGO (OPTIMIZED SPACING)
+   LOGO
 ========================= */
 .logo {
   display: block;
-
   margin: var(--space-5) auto var(--space-3);
-
   width: 40%;
   height: auto;
-
-  animation: fadeIn 0.8s ease-out;
 }
 
 /* =========================
-   HERO (CLEAN SPACING)
+   HERO
 ========================= */
 .hero {
   text-align: center;
-
   padding: var(--space-5) var(--space-4) var(--space-6);
 }
 
 .hero h1 {
   font-size: 28px;
-  margin-bottom: var(--space-2);
 }
 
 .hero p {
   color: #94a3b8;
-  max-width: 600px;
-  margin: auto;
 }
 
 /* =========================
@@ -140,7 +93,6 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-5);
-
   padding: var(--space-5);
   max-width: 900px;
   margin: auto;
@@ -150,42 +102,13 @@ body {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
-
   padding: var(--space-5);
-
   transition: all 0.25s ease;
-
-  animation: fadeIn 0.9s ease-out;
 }
 
 .card:hover {
   transform: translateY(-6px);
   border-color: rgba(96,165,250,0.5);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-}
-
-.card h3 {
-  margin-top: 0;
-  color: #60a5fa;
-}
-
-.card a {
-  color: #e2e8f0;
-  text-decoration: none;
-}
-
-.card a:hover {
-  color: #60a5fa;
-}
-
-/* =========================
-   CONTENT
-========================= */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: var(--space-6) var(--space-4);
-  flex: 1;
 }
 
 /* =========================
@@ -195,23 +118,14 @@ footer {
   text-align: center;
   font-size: var(--text-small);
   color: #64748b;
-
   padding: var(--space-6) 0;
-
-  border-top: 1px solid rgba(255,255,255,0.05);
-  background: rgba(255,255,255,0.01);
-
   margin-top: auto;
 }
 
 /* =========================
-   MOBILE CENTERED SNAP CAROUSEL (FIXED)
+   MOBILE PREMIUM CAROUSEL
 ========================= */
 @media (max-width: 600px) {
-
-  body {
-    font-size: 16px;
-  }
 
   .nav {
     flex-direction: column;
@@ -231,7 +145,9 @@ footer {
     font-size: 15px;
   }
 
-  /* CAROUSEL CONTAINER */
+  /* =========================
+     CAROUSEL CONTAINER
+  ========================= */
   .card-grid {
     display: flex;
     overflow-x: auto;
@@ -242,35 +158,46 @@ footer {
     gap: var(--space-5);
     padding: var(--space-5);
 
+    justify-content: center;
     align-items: center;
 
     -webkit-overflow-scrolling: touch;
   }
 
-  /* CENTERED CARD (STABLE VERSION) */
+  /* =========================
+     CARDS (BASE STATE)
+  ========================= */
   .card {
-    flex: 0 0 78%;
-    max-width: 320px;
+    flex: 0 0 calc(78% - 30px);
+    max-width: 290px;
 
     scroll-snap-align: center;
     scroll-snap-stop: always;
-
-    margin-left: auto;
-    margin-right: auto;
 
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
 
-    transform: none !important;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    opacity: 0.55;
+    transform: scale(0.95);
   }
 
-  /* remove previous broken centering hacks */
-  .card-grid::before,
-  .card-grid::after {
-    display: none;
+  /* =========================
+     ACTIVE CENTER CARD EFFECT
+  ========================= */
+  .card:focus-within,
+  .card:hover {
+    opacity: 1;
+    transform: scale(1.05);
   }
 
+  /* fallback for active snap visual feel */
+  .card {
+    scroll-snap-align: center;
+  }
+
+  /* remove drift hacks */
   .card-grid::-webkit-scrollbar {
     display: none;
   }
