@@ -5,6 +5,19 @@
   --radius-md: 16px;
 }
 
+
+/* PAGE HEADINGS (Privacy, Terms, Deletion) */
+.container h1 {
+  color: #60a5fa;
+  margin-bottom: 12px;
+}
+
+/* EMAIL STYLE (Deletion page) */
+.email {
+  color: #60a5fa;
+  font-weight: bold;
+}
+
 /* BASE */
 body {
   margin: 0;
