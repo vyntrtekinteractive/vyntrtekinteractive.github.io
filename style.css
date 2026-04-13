@@ -96,11 +96,14 @@ body {
 }
 
 /* =========================
-   LOGO
+   LOGO (FIXED SPACING)
 ========================= */
 .logo {
   display: block;
-  margin: var(--space-lg) auto var(--space-md);
+
+  /* 🔥 reduced spacing */
+  margin: 14px auto 6px;
+
   width: 40%;
   height: auto;
 
@@ -108,16 +111,18 @@ body {
 }
 
 /* =========================
-   HERO
+   HERO (FIXED SPACING)
 ========================= */
 .hero {
   text-align: center;
-  padding: var(--space-xl) var(--space-md) var(--space-lg);
+
+  /* 🔥 reduced spacing */
+  padding: 14px 12px 18px;
 }
 
 .hero h1 {
   font-size: 28px;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 8px;
 }
 
 .hero p {
@@ -196,7 +201,7 @@ footer {
 }
 
 /* =========================
-   MOBILE CENTERED SWIPE CAROUSEL (FIXED)
+   MOBILE SWIPE CAROUSEL
 ========================= */
 @media (max-width: 600px) {
 
@@ -222,7 +227,6 @@ footer {
     font-size: 15px;
   }
 
-  /* CAROUSEL CONTAINER */
   .card-grid {
     display: flex;
     overflow-x: auto;
@@ -238,7 +242,6 @@ footer {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* CENTERED CARD FIX */
   .card {
     flex: 0 0 78%;
     max-width: 320px;
@@ -255,7 +258,6 @@ footer {
     transform-origin: center;
   }
 
-  /* CENTER BUFFER (CRITICAL FIX) */
   .card-grid::before,
   .card-grid::after {
     content: "";
