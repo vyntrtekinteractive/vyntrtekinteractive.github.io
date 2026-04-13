@@ -196,7 +196,7 @@ footer {
 }
 
 /* =========================
-   MOBILE SWIPE CAROUSEL
+   MOBILE SWIPE CAROUSEL (FIXED)
 ========================= */
 @media (max-width: 600px) {
 
@@ -222,7 +222,7 @@ footer {
     font-size: 15px;
   }
 
-  /* 🔥 SWIPE CAROUSEL MODE */
+  /* 🔥 FIXED CAROUSEL */
   .card-grid {
     display: flex;
     overflow-x: auto;
@@ -231,15 +231,25 @@ footer {
 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+
+    scroll-padding-left: var(--space-md);
+    scroll-padding-right: var(--space-md);
+
+    overscroll-behavior-x: contain;
   }
 
   .card {
     min-width: 80%;
-    scroll-snap-align: start;
     flex-shrink: 0;
+    scroll-snap-align: center;
   }
 
-  /* optional: hide scrollbar (clean UI) */
+  /* invisible spacer fixes last-card centering */
+  .card-grid::after {
+    content: "";
+    flex: 0 0 var(--space-md);
+  }
+
   .card-grid::-webkit-scrollbar {
     display: none;
   }
