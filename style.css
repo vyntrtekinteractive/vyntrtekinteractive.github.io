@@ -127,7 +127,7 @@ body {
 }
 
 /* =========================
-   CARD GRID (DESKTOP)
+   DESKTOP CARDS
 ========================= */
 .card-grid {
   display: grid;
@@ -196,7 +196,7 @@ footer {
 }
 
 /* =========================
-   MOBILE SWIPE CAROUSEL (FIXED)
+   MOBILE SNAP CAROUSEL (FINAL FIX)
 ========================= */
 @media (max-width: 600px) {
 
@@ -222,32 +222,35 @@ footer {
     font-size: 15px;
   }
 
-  /* 🔥 FIXED CAROUSEL */
+  /* 🔥 TRUE PAGE-LIKE CAROUSEL */
   .card-grid {
     display: flex;
     overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
     gap: var(--space-md);
     padding: var(--space-md);
 
-    scroll-snap-type: x mandatory;
+    align-items: stretch;
+
     -webkit-overflow-scrolling: touch;
-
-    scroll-padding-left: var(--space-md);
-    scroll-padding-right: var(--space-md);
-
-    overscroll-behavior-x: contain;
   }
 
   .card {
-    min-width: 80%;
-    flex-shrink: 0;
+    flex: 0 0 85%;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
+
+    margin: 0 auto;
+    transform: none !important;
   }
 
-  /* invisible spacer fixes last-card centering */
+  /* prevents layout distortion at edges */
   .card-grid::after {
     content: "";
-    flex: 0 0 var(--space-md);
+    flex: 0 0 10%;
   }
 
   .card-grid::-webkit-scrollbar {
