@@ -102,7 +102,7 @@ body {
 }
 
 /* =========================
-   HERO
+   HERO (FIXED)
 ========================= */
 .hero {
   text-align: center;
@@ -111,12 +111,21 @@ body {
 
 .hero p {
   max-width: 100%;
-  overflow-wrap: break-word;
+  margin: 0 auto;
+
+  padding: 0 12px;
+
   text-align: center;
+
+  /* ✅ FIX FOR MOBILE TEXT BREAKING */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  box-sizing: border-box;
 }
 
 /* =========================
-   UNIFIED CAROUSEL (DESKTOP + MOBILE)
+   UNIFIED CAROUSEL
 ========================= */
 .card-grid {
   display: flex;
