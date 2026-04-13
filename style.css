@@ -127,7 +127,7 @@ body {
 }
 
 /* =========================
-   CARD SYSTEM (DESKTOP)
+   CARD GRID (DESKTOP)
 ========================= */
 .card-grid {
   display: grid;
@@ -196,7 +196,7 @@ footer {
 }
 
 /* =========================
-   MOBILE FIX (IMPORTANT)
+   MOBILE SWIPE CAROUSEL
 ========================= */
 @media (max-width: 600px) {
 
@@ -222,8 +222,25 @@ footer {
     font-size: 15px;
   }
 
-  /* FIX: cards stack properly on mobile */
+  /* 🔥 SWIPE CAROUSEL MODE */
   .card-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    gap: var(--space-md);
+    padding: var(--space-md);
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .card {
+    min-width: 80%;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+
+  /* optional: hide scrollbar (clean UI) */
+  .card-grid::-webkit-scrollbar {
+    display: none;
   }
 }
