@@ -1,7 +1,4 @@
 
-/* =========================
-   DESIGN SYSTEM
-========================= */
 :root {
   --space-xs: 6px;
   --space-sm: 12px;
@@ -15,13 +12,13 @@
   --text-small: 14px;
 }
 
-/* =========================
-   BASE
-========================= */
 html {
   scroll-behavior: smooth;
 }
 
+/* =========================
+   BASE
+========================= */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -130,7 +127,7 @@ body {
 }
 
 /* =========================
-   CARD SYSTEM
+   CARD SYSTEM (DESKTOP)
 ========================= */
 .card-grid {
   display: grid;
@@ -199,7 +196,7 @@ footer {
 }
 
 /* =========================
-   MOBILE
+   MOBILE FIX (IMPORTANT)
 ========================= */
 @media (max-width: 600px) {
 
@@ -223,5 +220,10 @@ footer {
 
   .hero p {
     font-size: 15px;
+  }
+
+  /* FIX: cards stack properly on mobile */
+  .card-grid {
+    grid-template-columns: 1fr;
   }
 }
