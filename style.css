@@ -68,6 +68,40 @@ body {
 }
 
 /* =========================
+   HEADER (NEW SAFE ADDITION)
+========================= */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px 16px;
+  background: #0b1220;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.nav a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: #60a5fa;
+}
+
+/* =========================
    HERO (FIXED TEXT OVERFLOW)
 ========================= */
 .hero {
@@ -78,6 +112,7 @@ body {
 .hero h1 {
   font-size: 28px;
   margin-bottom: var(--space-sm);
+  color: #60a5fa; /* ADDED */
 }
 
 .hero p {
@@ -85,9 +120,9 @@ body {
   max-width: 600px;
   margin: auto;
 
-  /* FIX FOR MOBILE TEXT BREAKING */
   padding: 0 10px;
   box-sizing: border-box;
+
   overflow-wrap: anywhere;
   word-break: break-word;
   white-space: normal;
@@ -129,7 +164,7 @@ body {
 }
 
 .card h3 {
-  color: #60a5fa;
+  color: #60a5fa; /* CONFIRMED BLUE */
   margin-top: 0;
 }
 
