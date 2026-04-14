@@ -35,7 +35,7 @@ html, body {
 ========================= */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+ font-family: "SF Pro Display", "Inter", Arial, sans-serif;
   background: radial-gradient(circle at top, #111c33 0%, #0f172a 60%);
   color: #e2e8f0;
 
