@@ -4,11 +4,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy Policy</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+/* PLATFORM SELECTOR */
+.platform-select {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.platform-select button {
+  margin: 5px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1e293b;
+  color: white;
+  cursor: pointer;
+}
+
+.platform-select button.active {
+  background: #60a5fa;
+}
+
+/* ACCORDION */
+.accordion {
+  background: rgba(255,255,255,0.05);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.panel {
+  display: none;
+  padding: 10px 0;
+}
+</style>
+
 </head>
 
 <body>
 
-<div class="trust-bar">Official Publisher Site • Vyntrtek Interactive</div>
+<div class="trust-bar">Vyntrtek Interactive</div>
 
 <div class="header">
   <a href="/"><img src="logo.png" class="logo"></a>
@@ -24,59 +61,79 @@
 
 <h1>Privacy Policy</h1>
 
-<p>Vyntrtek Interactive develops hypercasual games for Facebook Instant Games.</p>
+<!-- PLATFORM SELECTOR -->
+<div class="platform-select">
+  <p>Select Platform:</p>
+  <button onclick="showPlatform('general')" class="active">General</button>
+  <button onclick="showPlatform('facebook')">Facebook Instant</button>
+  <button onclick="showPlatform('play')">Google Play</button>
+  <button onclick="showPlatform('samsung')">Samsung</button>
+</div>
+
+<!-- GENERAL -->
+<div class="platform general">
+
+<p>Vyntrtek Interactive develops hypercasual games for mobile and instant platforms.</p>
 
 <p>We do not directly collect or store personally identifiable information such as names, emails, or contact details.</p>
 
-<h3>Gameplay Data Collection</h3>
+</div>
 
-<p>To improve gameplay experience and performance, we collect limited non-personal gameplay data through secure HTTPS events. This may include:</p>
+<!-- FACEBOOK -->
+<div class="platform facebook" style="display:none;">
 
+<div class="accordion">Gameplay Data Collection</div>
+<div class="panel">
+<p>We collect limited non-personal gameplay data via secure HTTPS events:</p>
 <ul>
-  <li>Game start events</li>
-  <li>Session start time</li>
-  <li>Level entry events</li>
-  <li>Level completion or failure events</li>
+<li>Game start events</li>
+<li>Session start time</li>
+<li>Level entry</li>
+<li>Level completion/failure</li>
 </ul>
+</div>
 
-<p>This data may be processed using services such as Firebase and is used only for gameplay improvement, balancing, and performance analysis.</p>
+<div class="accordion">Third-Party Services</div>
+<div class="panel">
+<p>We use Meta Audience Network for ads.</p>
+</div>
 
-<h3>Third-Party Services</h3>
+<div class="accordion">Facebook Platform</div>
+<div class="panel">
+<p>We may access data provided by Facebook according to Facebook Data Policy.</p>
+</div>
 
-<p>We use Meta Audience Network for advertising (rewarded and interstitial ads).</p>
+</div>
 
-<p>These services may collect:</p>
+<!-- GOOGLE PLAY -->
+<div class="platform play" style="display:none;">
 
-<ul>
-  <li>Device information</li>
-  <li>Gameplay interactions</li>
-  <li>Advertising identifiers</li>
-</ul>
+<div class="accordion">Data Collection</div>
+<div class="panel">
+<p>We collect non-personal gameplay analytics for performance improvement.</p>
+</div>
 
-<p>All such data is handled by Meta under their policies.</p>
+<div class="accordion">Advertising</div>
+<div class="panel">
+<p>We may use Google AdMob which may collect device identifiers and usage data.</p>
+</div>
 
-<h3>Facebook Platform</h3>
+</div>
 
-<p>As a Facebook Instant Game, we may access and use data provided by Facebook in accordance with Facebook’s Data Policy.</p>
+<!-- SAMSUNG -->
+<div class="platform samsung" style="display:none;">
 
-<h3>Data Usage</h3>
+<div class="accordion">Data Handling</div>
+<div class="panel">
+<p>Data collection follows standard mobile analytics practices for gameplay optimization.</p>
+</div>
 
-<p>The data we collect is used solely to improve gameplay experience, analyze player progression, and monitor game performance. We do not sell or share user data beyond the services listed above.</p>
+</div>
 
-<h3>Data Retention</h3>
-
-<p>We retain non-personal gameplay data only for as long as necessary to analyze performance and improve gameplay. Data may be periodically deleted or anonymized.</p>
-
-<h3>Children’s Privacy</h3>
-
-<p>Our games are not directed to children under the age of 13. We do not knowingly collect personal data from children.</p>
-
+<!-- CONTACT -->
 <h3>Contact</h3>
-
-<p>If you have any questions about this policy, you may contact us at:</p>
-
 <p>
-  <a href="mailto:vyntrtek@gmail.com" class="email">vyntrtek@gmail.com</a>
+<a href="mailto:vyntrtek@gmail.com" class="email">vyntrtek@gmail.com</a>
 </p>
 
 <p>Last Updated: August 15, 2026</p>
@@ -84,6 +141,24 @@
 </div>
 
 <footer>© 2026 Vyntrtek Interactive</footer>
+
+<script>
+function showPlatform(type) {
+  document.querySelectorAll(".platform").forEach(el => el.style.display = "none");
+  document.querySelector("." + type).style.display = "block";
+
+  document.querySelectorAll(".platform-select button").forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+/* ACCORDION */
+document.querySelectorAll(".accordion").forEach(item => {
+  item.addEventListener("click", () => {
+    const panel = item.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
 
 </body>
 </html>
