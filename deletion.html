@@ -4,11 +4,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Data Deletion</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+.platform-select {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.platform-select button {
+  margin: 5px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1e293b;
+  color: white;
+  cursor: pointer;
+}
+
+.platform-select button.active {
+  background: #60a5fa;
+}
+
+.accordion {
+  background: rgba(255,255,255,0.05);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.panel {
+  display: none;
+  padding: 10px 0;
+}
+</style>
+
 </head>
 
 <body>
 
-<div class="trust-bar">Official Publisher Site • Vyntrtek Interactive</div>
+<div class="trust-bar">Vyntrtek Interactive</div>
 
 <div class="header">
   <a href="/"><img src="logo.png" class="logo"></a>
@@ -24,25 +59,109 @@
 
 <h1>Data Deletion Request</h1>
 
+<!-- PLATFORM SELECTOR -->
+<div class="platform-select">
+  <p>Select Platform:</p>
+  <button onclick="showPlatform('general')" class="active">General</button>
+  <button onclick="showPlatform('facebook')">Facebook Instant</button>
+  <button onclick="showPlatform('play')">Google Play</button>
+  <button onclick="showPlatform('samsung')">Samsung</button>
+</div>
+
+<!-- GENERAL -->
+<div class="platform general">
+
 <p>To request deletion of any data related to our games, contact:</p>
 
 <p>
-  <a href="mailto:vyntrtek@gmail.com" class="email">vyntrtek@gmail.com</a>
+  <a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
 </p>
 
 <p>We do not collect or store personally identifiable information such as names, emails, or contact details.</p>
 
-<p>However, we may store limited non-personal gameplay data (such as game events and progression) to improve gameplay experience. This data can be deleted upon request.</p>
+<p>However, we may store limited non-personal gameplay data (such as game events, session timing, and progression) to improve gameplay experience. This data can be deleted upon request.</p>
 
-<p><strong>Processing Time:</strong> We will delete or anonymize all non-personal gameplay data within 30 days of your request and will confirm by email when complete.</p>
+<p><strong>Processing Time:</strong> We will delete or anonymize applicable data within 30 days of your request and will confirm by email when complete.</p>
 
-<p><strong>Email Subject:</strong> Please use subject: "Name of the Game" Deletion Request"</p>
+<p><strong>Email Subject:</strong> Please use subject: "Game Name – Data Deletion Request"</p>
 
-<p>Last Updated: August 15, 2026</p>
+</div>
+
+<!-- FACEBOOK -->
+<div class="platform facebook" style="display:none;">
+
+<div class="accordion">Facebook Instant Games Data</div>
+<div class="panel">
+<p>For Facebook Instant Games, data processed may include gameplay events and platform-provided data in accordance with Meta policies.</p>
+</div>
+
+<div class="accordion">Deletion Requests</div>
+<div class="panel">
+<p>Users can request deletion of associated gameplay data by contacting:</p>
+<p><a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a></p>
+</div>
+
+<div class="accordion">Processing Time</div>
+<div class="panel">
+<p>All applicable data will be deleted or anonymized within 30 days and confirmation will be provided via email.</p>
+</div>
+
+</div>
+
+<!-- GOOGLE PLAY -->
+<div class="platform play" style="display:none;">
+
+<div class="accordion">App Data</div>
+<div class="panel">
+<p>We may collect non-personal gameplay analytics to improve app performance and user experience.</p>
+</div>
+
+<div class="accordion">Deletion Requests</div>
+<div class="panel">
+<p>You may request deletion of applicable data by contacting:</p>
+<p><a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a></p>
+</div>
+
+</div>
+
+<!-- SAMSUNG -->
+<div class="platform samsung" style="display:none;">
+
+<div class="accordion">Data Handling</div>
+<div class="panel">
+<p>Gameplay data may be stored temporarily for performance analysis and optimization.</p>
+</div>
+
+<div class="accordion">Deletion Requests</div>
+<div class="panel">
+<p>Contact us to request removal of applicable data:</p>
+<p><a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a></p>
+</div>
+
+</div>
+
+<p>Last Updated: September 15, 2026</p>
 
 </div>
 
 <footer>© 2026 Vyntrtek Interactive</footer>
+
+<script>
+function showPlatform(type) {
+  document.querySelectorAll(".platform").forEach(el => el.style.display = "none");
+  document.querySelector("." + type).style.display = "block";
+
+  document.querySelectorAll(".platform-select button").forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+document.querySelectorAll(".accordion").forEach(item => {
+  item.addEventListener("click", () => {
+    const panel = item.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
 
 </body>
 </html>
