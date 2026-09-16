@@ -11,7 +11,7 @@
   --text-small: 14px;
 
   /* NEW TEXT SYSTEM */
-  --text-main: #d1d9e6;     /* softer than pure white */
+  --text-main: #d1d9e6;
   --text-muted: #94a3b8;
   --text-heading: #cbd5e1;
   --accent: #60a5fa;
@@ -48,25 +48,16 @@ body {
 }
 
 /* =========================
-   TEXT DEFAULTS (NEW CONSISTENCY LAYER)
+   TEXT DEFAULTS
 ========================= */
 p, li {
   color: var(--text-main);
 }
 
 h1, h2, h3 {
-  color: var(--text-heading);
-}
-
-h1 {
   color: var(--accent);
 }
 
-h2, h3 {
-  color: var(--accent);
-}
-
-/* muted helper (optional use) */
 .muted {
   color: var(--text-muted);
 }
@@ -97,7 +88,7 @@ h2, h3 {
 }
 
 /* =========================
-   TRUST BAR
+   TRUST BAR (FIXED TOP LAYER)
 ========================= */
 .trust-bar {
   text-align: center;
@@ -106,10 +97,14 @@ h2, h3 {
   padding: 8px 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   background: rgba(255,255,255,0.02);
+
+  position: sticky;
+  top: 0;
+  z-index: 1100;
 }
 
 /* =========================
-   HEADER
+   HEADER (PRO FIX: STICKY)
 ========================= */
 .header {
   display: flex;
@@ -121,6 +116,10 @@ h2, h3 {
 
   flex-wrap: wrap;
   gap: 10px;
+
+  position: sticky;
+  top: 32px; /* sits below trust bar */
+  z-index: 1000;
 }
 
 /* LOGO */
@@ -248,7 +247,7 @@ footer {
 }
 
 /* =========================
-   MOBILE FIXES (SAFE)
+   MOBILE FIXES
 ========================= */
 @media (max-width: 600px) {
 
@@ -259,6 +258,7 @@ footer {
   .header {
     flex-direction: column;
     align-items: flex-start;
+    top: 28px; /* adjust for smaller trust bar spacing */
   }
 
   .logo {
