@@ -153,16 +153,26 @@ body {
 /* =========================
    CAROUSEL GRID (DESKTOP)
 ========================= */
+/* UNIFIED CAROUSEL (DESKTOP + MOBILE) */
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
   gap: var(--space-md);
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  padding-bottom: 10px;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 /* =========================
    CARDS
 ========================= */
 .card {
+  flex: 0 0 260px;   /* 🔥 locks width → prevents stacking */
+  max-width: 260px;
+  
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
