@@ -15,6 +15,7 @@
   --text-heading: #cbd5e1;
   --accent: #60a5fa;
 
+  /* header offsets */
   --header-height: 72px;
   --header-height-mobile: 92px;
 }
@@ -92,14 +93,14 @@ h1, h2, h3 {
 }
 
 /* =========================
-   TRUST BAR
+   TRUST BAR (hidden cleanly)
 ========================= */
 .trust-bar {
   display: none;
 }
 
 /* =========================
-   HEADER (GLASS + POLISHED)
+   HEADER (GLASS + FIXED)
 ========================= */
 .header {
   position: fixed;
@@ -115,14 +116,10 @@ h1, h2, h3 {
 
   padding: 12px 16px;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(11, 18, 32, 0.85),
-    rgba(11, 18, 32, 0.55)
-  );
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  /* glass effect */
+  background: rgba(11, 18, 32, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   border-bottom: 1px solid rgba(255,255,255,0.08);
 
@@ -132,9 +129,10 @@ h1, h2, h3 {
   transition: all 0.25s ease;
 }
 
+/* shrink-on-scroll state */
 .header.shrink {
   padding: 6px 16px;
-  background: rgba(11, 18, 32, 0.95);
+  background: rgba(11, 18, 32, 0.85);
 }
 
 /* LOGO */
@@ -142,11 +140,6 @@ h1, h2, h3 {
   width: 140px;
   height: auto;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.logo:hover {
-  transform: scale(1.03);
 }
 
 /* NAV */
@@ -161,16 +154,11 @@ h1, h2, h3 {
   color: var(--text-main);
   text-decoration: none;
   font-size: 14px;
-
-  padding: 6px 10px;
-  border-radius: 8px;
-
   transition: 0.2s ease;
 }
 
 .nav a:hover {
   color: var(--accent);
-  background: rgba(96,165,250,0.08);
 }
 
 /* =========================
@@ -228,19 +216,25 @@ h1, h2, h3 {
 
   animation: cardFade 0.6s ease;
   transition: 0.25s ease;
-
-  will-change: transform;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(96,165,250,0.5);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
 }
 
 .card h3 {
   color: var(--accent);
   margin-top: 0;
+}
+
+.card a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: var(--accent);
 }
 
 /* =========================
@@ -259,61 +253,7 @@ footer {
 }
 
 /* =========================
-   VIDEO MODAL (FIXED + SMOOTH ANIMATION)
-========================= */
-.video-modal {
-  position: fixed;
-  inset: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  background: rgba(0,0,0,0.85);
-
-  opacity: 0;
-  pointer-events: none;
-
-  transition: opacity 0.25s ease;
-}
-
-.video-modal.show {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.video-box {
-  position: relative;
-  width: 90%;
-  max-width: 500px;
-
-  transform: scale(0.95);
-  transition: transform 0.25s ease;
-}
-
-.video-modal.show .video-box {
-  transform: scale(1);
-}
-
-#gameVideo {
-  width: 100%;
-  border-radius: 12px;
-  background: black;
-}
-
-/* CLOSE BUTTON */
-.close-btn {
-  position: absolute;
-  top: -40px;
-  right: 0;
-
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* =========================
-   MOBILE
+   MOBILE FIXES
 ========================= */
 @media (max-width: 600px) {
 
@@ -326,7 +266,6 @@ footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 10px 12px;
   }
 
   .logo {
@@ -336,11 +275,26 @@ footer {
 
   .nav {
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
+  }
+
+  .card-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--space-md);
+    padding-bottom: 10px;
   }
 
   .card {
     flex: 0 0 75%;
     max-width: 280px;
+    scroll-snap-align: center;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .card-grid::-webkit-scrollbar {
+    display: none;
   }
 }
