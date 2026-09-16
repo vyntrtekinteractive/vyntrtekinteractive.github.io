@@ -8,7 +8,7 @@
 
 <body>
 
-<!-- HEADER (ONLY BRAND + CONTACT) -->
+<!-- HEADER -->
 <div class="header">
 
   <a href="index.html" class="logo-wrap">
@@ -48,9 +48,13 @@
       <p>Tap timing stacking challenge</p>
     </div>
 
-    <!-- GAME 2 (UPDATED: COLOR WHEEL) -->
-    <div class="card" onclick="openVideo('color-wheel-demo.mp4')"
-      <img src="color-wheel-icon.png" style="width:100%; border-radius:12px;">
+    <!-- GAME 2 (COLOR WHEEL FIXED) -->
+    <div class="card" onclick="openVideo('color-wheel-demo.mp4')">
+
+      <img src="color-wheel-icon.png"
+           onerror="this.src='game2.png'"
+           style="width:100%; border-radius:12px;">
+
       <h3>Color Wheel</h3>
       <p>Reaction-based rotation game</p>
     </div>
@@ -90,7 +94,7 @@
   </div>
 </div>
 
-<!-- LEGAL MINI CAROUSEL -->
+<!-- LEGAL -->
 <div class="container">
 
   <h2 style="color:#60a5fa; text-align:center;">Legal</h2>
@@ -120,15 +124,26 @@
 © 2026 Vyntrtek Interactive • vyntrtek.com • support@vyntrtek.com
 </footer>
 
-<!-- VIDEO MODAL -->
-<div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; justify-content:center; align-items:center;">
-  
-  <video id="gameVideo" controls playsinline style="width:90%; max-width:500px;"></video>
+<!-- VIDEO MODAL (IMPROVED EXIT CONTROL) -->
+<div id="videoModal"
+     onclick="backgroundClose(event)"
+     style="display:none; position:fixed; inset:0; background:#000000dd; justify-content:center; align-items:center;">
 
-  <div onclick="closeVideo()" style="position:absolute; top:20px; right:20px; color:white; cursor:pointer;">
-    Close ✕
+  <div style="position:relative; width:90%; max-width:500px;">
+
+    <video id="gameVideo"
+           controls
+           playsinline
+           style="width:100%; border-radius:12px; background:black;">
+    </video>
+
+    <!-- CLOSE BUTTON -->
+    <div onclick="closeVideo()"
+         style="position:absolute; top:-40px; right:0; color:white; font-size:16px; cursor:pointer;">
+      ✕ Close
+    </div>
+
   </div>
-
 </div>
 
 <script>
@@ -156,7 +171,15 @@ function closeVideo() {
   video.pause();
   video.currentTime = 0;
   video.src = "";
+
   modal.style.display = "none";
+}
+
+/* click outside video closes (important UX fix) */
+function backgroundClose(e) {
+  if (e.target.id === "videoModal") {
+    closeVideo();
+  }
 }
 </script>
 
