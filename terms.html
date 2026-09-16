@@ -4,11 +4,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Service</title>
 <link rel="stylesheet" href="style.css">
+
+<style>
+.platform-select {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.platform-select button {
+  margin: 5px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: #1e293b;
+  color: white;
+  cursor: pointer;
+}
+
+.platform-select button.active {
+  background: #60a5fa;
+}
+
+.accordion {
+  background: rgba(255,255,255,0.05);
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.panel {
+  display: none;
+  padding: 10px 0;
+}
+</style>
+
 </head>
 
 <body>
 
-<div class="trust-bar">Official Publisher Site • Vyntrtek Interactive</div>
+<div class="trust-bar">Vyntrtek Interactive</div>
 
 <div class="header">
   <a href="/"><img src="logo.png" class="logo"></a>
@@ -24,31 +59,119 @@
 
 <h1>Terms of Service</h1>
 
-<p>By using Vyntrtek Interactive games, users agree to follow Meta Instant Games platform rules and policies.</p>
+<!-- PLATFORM SELECTOR -->
+<div class="platform-select">
+  <p>Select Platform:</p>
+  <button onclick="showPlatform('general')" class="active">General</button>
+  <button onclick="showPlatform('facebook')">Facebook Instant</button>
+  <button onclick="showPlatform('play')">Google Play</button>
+  <button onclick="showPlatform('samsung')">Samsung</button>
+</div>
+
+<!-- GENERAL -->
+<div class="platform general">
+
+<p>By using Vyntrtek Interactive games, users agree to follow applicable platform rules and policies.</p>
 
 <p>Our games are provided for entertainment purposes only.</p>
 
-<p>We may collect limited non-personal gameplay data to improve game performance and user experience. By using our games, you agree to this data usage as described in our Privacy Policy.</p>
+<p>We may collect limited non-personal gameplay data to improve game performance and user experience. This data usage is described in our Privacy Policy.</p>
 
 <p>We are not responsible for any loss, interruptions, or issues that may occur during gameplay.</p>
 
 <p>Game features, availability, and content may change at any time without notice.</p>
 
-<p>Age Requirement: You must be 13 or older to use Vyntrtek Interactive games.</p>
+<p><strong>Age Requirement:</strong> You must be 13 or older to use Vyntrtek Interactive games.</p>
 
-<p>Changes to Terms: We may update these Terms at any time. Continued use of our games means you accept the updated Terms.</p>
+<p><strong>Changes to Terms:</strong> We may update these Terms at any time. Continued use of our games means you accept the updated Terms.</p>
 
-<p>Contact: For questions about these Terms, contact 
-<a href="mailto:vyntrtek@gmail.com" class="email">vyntrtek@gmail.com</a>
+<p><strong>If you do not agree with these Terms, you should not use our games.</strong></p>
+
+</div>
+
+<!-- FACEBOOK -->
+<div class="platform facebook" style="display:none;">
+
+<div class="accordion">Platform Compliance</div>
+<div class="panel">
+<p>Users must comply with Meta Instant Games policies and Facebook platform rules.</p>
+</div>
+
+<div class="accordion">Data Usage</div>
+<div class="panel">
+<p>Gameplay analytics may be collected to improve performance and experience.</p>
+</div>
+
+<div class="accordion">Contact</div>
+<div class="panel">
+<p>
+Contact us at:
+<a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
 </p>
+</div>
 
-<p>If you do not agree with these terms, you should not use our games.</p>
+</div>
 
-<p>Last Updated: August 15, 2026</p>
+<!-- GOOGLE PLAY -->
+<div class="platform play" style="display:none;">
+
+<div class="accordion">Platform Rules</div>
+<div class="panel">
+<p>Users must follow Google Play policies and developer program guidelines.</p>
+</div>
+
+<div class="accordion">Data Usage</div>
+<div class="panel">
+<p>We may use analytics tools (including Firebase/AdMob) for performance and gameplay improvement.</p>
+</div>
+
+<div class="accordion">Contact</div>
+<div class="panel">
+<p>
+Contact:
+<a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
+</p>
+</div>
+
+</div>
+
+<!-- SAMSUNG -->
+<div class="platform samsung" style="display:none;">
+
+<div class="accordion">Platform Usage</div>
+<div class="panel">
+<p>Users agree to Samsung Galaxy Store distribution policies where applicable.</p>
+</div>
+
+<div class="accordion">Data Handling</div>
+<div class="panel">
+<p>Limited gameplay data may be used for optimization and improvement.</p>
+</div>
+
+</div>
+
+<p>Last Updated: September 15, 2026</p>
 
 </div>
 
 <footer>© 2026 Vyntrtek Interactive</footer>
+
+<script>
+function showPlatform(type) {
+  document.querySelectorAll(".platform").forEach(el => el.style.display = "none");
+  document.querySelector("." + type).style.display = "block";
+
+  document.querySelectorAll(".platform-select button").forEach(btn => btn.classList.remove("active"));
+  event.target.classList.add("active");
+}
+
+document.querySelectorAll(".accordion").forEach(item => {
+  item.addEventListener("click", () => {
+    const panel = item.nextElementSibling;
+    panel.style.display = panel.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
 
 </body>
 </html>
