@@ -10,7 +10,6 @@
   --text-base: 16px;
   --text-small: 14px;
 
-  /* NEW TEXT SYSTEM */
   --text-main: #d1d9e6;
   --text-muted: #94a3b8;
   --text-heading: #cbd5e1;
@@ -21,9 +20,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* =========================
-   GLOBAL FIX
-========================= */
 html, body {
   overflow-x: hidden;
 }
@@ -46,12 +42,12 @@ body {
 
   animation: fadeIn 0.6s ease-out;
 
-  /* FIX: prevents content going under fixed bars */
-  padding-top: 96px;
+  /* reduced because we removed trust bar text complexity */
+  padding-top: 64px;
 }
 
 /* =========================
-   TEXT DEFAULTS
+   TEXT SYSTEM
 ========================= */
 p, li {
   color: var(--text-main);
@@ -91,7 +87,7 @@ h1, h2, h3 {
 }
 
 /* =========================
-   TRUST BAR (FIXED TOP)
+   TRUST BAR (CLEAN STRIP ONLY)
 ========================= */
 .trust-bar {
   position: fixed;
@@ -101,25 +97,18 @@ h1, h2, h3 {
 
   z-index: 1100;
 
-  height: 32px;
+  height: 20px; /* reduced */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 12px;
-  color: var(--text-muted);
-
-  border-bottom: 1px solid rgba(255,255,255,0.05);
   background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 /* =========================
-   HEADER (FIXED BELOW TRUST BAR)
+   HEADER (MOVES UP)
 ========================= */
 .header {
   position: fixed;
-  top: 32px;
+  top: 20px; /* moved up */
   left: 0;
   right: 0;
 
@@ -178,9 +167,6 @@ h1, h2, h3 {
   max-width: 600px;
   margin: auto;
   color: var(--text-muted);
-
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 /* =========================
@@ -233,12 +219,10 @@ h1, h2, h3 {
 
 .card h3 {
   color: var(--accent);
-  margin-top: 0;
 }
 
 .card a {
   color: var(--text-main);
-  text-decoration: none;
 }
 
 .card a:hover {
@@ -267,13 +251,13 @@ footer {
 
   body {
     font-size: 16px;
-    padding-top: 105px;
+    padding-top: 80px;
   }
 
   .header {
+    top: 20px;
     flex-direction: column;
     align-items: flex-start;
-    top: 32px;
   }
 
   .logo {
@@ -285,27 +269,14 @@ footer {
     gap: 10px;
   }
 
-  .hero {
-    padding: 16px;
-  }
-
   .card-grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: var(--space-md);
-    padding-bottom: 10px;
   }
 
   .card {
     flex: 0 0 75%;
     max-width: 280px;
-    scroll-snap-align: center;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .card-grid::-webkit-scrollbar {
-    display: none;
   }
 }
