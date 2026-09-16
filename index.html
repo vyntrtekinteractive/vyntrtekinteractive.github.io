@@ -8,56 +8,151 @@
 
 <body>
 
+<!-- TOP BAR -->
 <div class="trust-bar">
-Official Publisher Site • Vyntrtek Interactive
+Vyntrtek Interactive
 </div>
 
+<!-- HEADER (ONLY BRAND + CONTACT) -->
 <div class="header">
-  <a href="/"><img src="logo.png" class="logo"></a>
+
+  <a href="index.html" class="logo-wrap">
+    <img src="logo.png" class="logo" alt="Vyntrtek Interactive">
+  </a>
 
   <div class="nav">
-    <a href="index.html">Home</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="deletion.html">Deletion</a>
-    <a href="terms.html">Terms</a>
+    <a href="#games">Games</a>
+    <a href="mailto:support@vyntrtek.com">Contact</a>
+  </div>
+
+</div>
+
+<!-- HERO -->
+<div class="container hero">
+
+  <h1>We build hypercasual mobile games</h1>
+  <p>
+    Simple mechanics. Fast gameplay. Designed for instant fun across mobile platforms.
+  </p>
+
+</div>
+
+<!-- GAMES CAROUSEL -->
+<div class="container">
+
+  <h2 style="color:#60a5fa; text-align:center;">Featured Games</h2>
+
+  <div class="card-grid" id="games">
+
+    <!-- GAME 1 -->
+    <div class="card" onclick="openVideo('video1.mp4')">
+      <img src="game1.png" style="width:100%; border-radius:12px;">
+      <h3>Stack Surge</h3>
+      <p>Tap timing stacking challenge</p>
+    </div>
+
+    <!-- GAME 2 -->
+    <div class="card" onclick="openVideo('video2.mp4')">
+      <img src="game2.png" style="width:100%; border-radius:12px;">
+      <h3>Color Wheel</h3>
+      <p>Reaction-based rotation game</p>
+    </div>
+
+    <!-- GAME 3 -->
+    <div class="card" onclick="openVideo('video3.mp4')">
+      <img src="game3.png" style="width:100%; border-radius:12px;">
+      <h3>Road Dash</h3>
+      <p>Lane reflex runner</p>
+    </div>
+
   </div>
 </div>
 
-<!-- MAIN CONTENT WRAPPER -->
+<!-- PLATFORM STRIP -->
 <div class="container">
 
-  <div class="hero">
-    <p>We build lightweight hypercasual games for mobile and instant game platforms.</p>
+  <h2 style="color:#60a5fa; text-align:center;">Available On</h2>
+
+  <div class="card-grid">
+
+    <div class="card">
+      <h3>Google Play</h3>
+      <p>Android distribution</p>
+    </div>
+
+    <div class="card">
+      <h3>Samsung Galaxy Store</h3>
+      <p>Coming soon</p>
+    </div>
+
+    <div class="card">
+      <h3>Instant Games</h3>
+      <p>Facebook platform</p>
+    </div>
+
   </div>
+</div>
+
+<!-- LEGAL MINI CAROUSEL -->
+<div class="container">
+
+  <h2 style="color:#60a5fa; text-align:center;">Legal</h2>
 
   <div class="card-grid">
 
     <div class="card">
       <h3>Privacy Policy</h3>
-      <p>How user data is handled in our games.</p>
       <a href="privacy.html">View →</a>
     </div>
 
     <div class="card">
-      <h3>Data Deletion</h3>
-      <p>Request removal of game-related data.</p>
-      <a href="deletion.html">View →</a>
-    </div>
-
-    <div class="card">
-      <h3>Terms of Service</h3>
-      <p>Rules and usage conditions for players.</p>
+      <h3>Terms</h3>
       <a href="terms.html">View →</a>
     </div>
 
+    <div class="card">
+      <h3>Data Deletion</h3>
+      <a href="deletion.html">View →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER (UPDATED OFFICIAL STRUCTURE) -->
+<footer>
+© 2026 Vyntrtek Interactive • vyntrtek.com • support@vyntrtek.com
+</footer>
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#000000cc; justify-content:center; align-items:center;">
+  
+  <video id="gameVideo" controls style="width:90%; max-width:500px;"></video>
+
+  <div onclick="closeVideo()" style="position:absolute; top:20px; right:20px; color:white; cursor:pointer;">
+    Close ✕
   </div>
 
 </div>
 
-<!-- FOOTER OUTSIDE CAROUSEL FLOW BUT STILL IN BODY -->
-<footer>
-© 2026 Vyntrtek Interactive
-</footer>
+<script>
+function openVideo(src) {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("gameVideo");
+
+  video.src = src;
+  modal.style.display = "flex";
+  video.play();
+}
+
+function closeVideo() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("gameVideo");
+
+  video.pause();
+  video.src = "";
+  modal.style.display = "none";
+}
+</script>
 
 </body>
 </html>
