@@ -48,7 +48,7 @@
       <p>Tap timing stacking challenge</p>
     </div>
 
-    <!-- GAME 2 (COLOR WHEEL FIXED) -->
+    <!-- GAME 2 -->
     <div class="card" onclick="openVideo('color-wheel-demo.mp4')">
 
       <img src="color-wheel-icon.png"
@@ -124,32 +124,25 @@
 © 2026 Vyntrtek Interactive • vyntrtek.com • support@vyntrtek.com
 </footer>
 
-<!-- VIDEO MODAL (IMPROVED EXIT CONTROL) -->
-<div id="videoModal"
-     onclick="backgroundClose(event)"
-     style="display:none; position:fixed; inset:0; background:#000000dd; justify-content:center; align-items:center;">
+<!-- VIDEO MODAL (FINAL CLEAN VERSION) -->
+<div id="videoModal" class="video-modal">
 
-  <div style="position:relative; width:90%; max-width:500px;">
+  <div class="video-box" onclick="event.stopPropagation()">
 
-    <video id="gameVideo"
-           controls
-           playsinline
-           style="width:100%; border-radius:12px; background:black;">
-    </video>
+    <video id="gameVideo" controls playsinline></video>
 
-    <!-- CLOSE BUTTON -->
-    <div onclick="closeVideo()"
-         style="position:absolute; top:-40px; right:0; color:white; font-size:16px; cursor:pointer;">
-      ✕ Close
-    </div>
+    <div class="close-btn" onclick="closeVideo()">✕ Close</div>
 
   </div>
+
 </div>
 
 <script>
+const modal = document.getElementById("videoModal");
+const video = document.getElementById("gameVideo");
+
+/* OPEN VIDEO */
 function openVideo(src) {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("gameVideo");
 
   video.pause();
   video.currentTime = 0;
@@ -157,30 +150,32 @@ function openVideo(src) {
   video.src = src;
   video.load();
 
-  modal.style.display = "flex";
+  modal.classList.add("show");
+  document.body.style.overflow = "hidden";
 
   video.play().catch(err => {
     console.log("Autoplay blocked:", err);
   });
 }
 
+/* CLOSE VIDEO */
 function closeVideo() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("gameVideo");
 
   video.pause();
   video.currentTime = 0;
   video.src = "";
 
-  modal.style.display = "none";
+  modal.classList.remove("show");
+  document.body.style.overflow = "";
 }
 
-/* click outside video closes (important UX fix) */
-function backgroundClose(e) {
-  if (e.target.id === "videoModal") {
-    closeVideo();
-  }
-}
+/* CLICK OUTSIDE CLOSE */
+modal.addEventListener("click", closeVideo);
+
+/* ESC KEY CLOSE */
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeVideo();
+});
 </script>
 
 </body>
