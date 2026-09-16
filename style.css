@@ -92,14 +92,14 @@ h1, h2, h3 {
 }
 
 /* =========================
-   TRUST BAR (disabled)
+   TRUST BAR
 ========================= */
 .trust-bar {
   display: none;
 }
 
 /* =========================
-   HEADER (GLASS + LAYERED DEPTH)
+   HEADER (GLASS + POLISHED)
 ========================= */
 .header {
   position: fixed;
@@ -132,7 +132,6 @@ h1, h2, h3 {
   transition: all 0.25s ease;
 }
 
-/* shrink-on-scroll (needs JS hook later) */
 .header.shrink {
   padding: 6px 16px;
   background: rgba(11, 18, 32, 0.95);
@@ -158,7 +157,6 @@ h1, h2, h3 {
   justify-content: flex-end;
 }
 
-/* NAV LINKS (IMPROVED TAP TARGETS) */
 .nav a {
   color: var(--text-main);
   text-decoration: none;
@@ -215,7 +213,7 @@ h1, h2, h3 {
 }
 
 /* =========================
-   CARDS (PLAY STORE STYLE LIFT)
+   CARDS
 ========================= */
 .card {
   flex: 0 0 260px;
@@ -245,15 +243,6 @@ h1, h2, h3 {
   margin-top: 0;
 }
 
-.card a {
-  color: var(--text-main);
-  text-decoration: none;
-}
-
-.card a:hover {
-  color: var(--accent);
-}
-
 /* =========================
    FOOTER
 ========================= */
@@ -270,7 +259,61 @@ footer {
 }
 
 /* =========================
-   MOBILE (CENTERED HEADER UPGRADE)
+   VIDEO MODAL (FIXED + SMOOTH ANIMATION)
+========================= */
+.video-modal {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.85);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.25s ease;
+}
+
+.video-modal.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.video-box {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+}
+
+.video-modal.show .video-box {
+  transform: scale(1);
+}
+
+#gameVideo {
+  width: 100%;
+  border-radius: 12px;
+  background: black;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* =========================
+   MOBILE
 ========================= */
 @media (max-width: 600px) {
 
@@ -296,23 +339,8 @@ footer {
     gap: 10px;
   }
 
-  .card-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: var(--space-md);
-    padding-bottom: 10px;
-  }
-
   .card {
     flex: 0 0 75%;
     max-width: 280px;
-    scroll-snap-align: center;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .card-grid::-webkit-scrollbar {
-    display: none;
   }
 }
