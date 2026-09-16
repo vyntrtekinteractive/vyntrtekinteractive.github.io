@@ -42,8 +42,8 @@ body {
 
   animation: fadeIn 0.6s ease-out;
 
-  /* reduced because we removed trust bar text complexity */
-  padding-top: 64px;
+  /* FIX: offset for fixed header only */
+  padding-top: 72px;
 }
 
 /* =========================
@@ -87,28 +87,18 @@ h1, h2, h3 {
 }
 
 /* =========================
-   TRUST BAR (CLEAN STRIP ONLY)
+   TRUST BAR (REMOVED VISUAL BUT KEPT SPACE SAFE IF USED)
 ========================= */
 .trust-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 1100;
-
-  height: 20px; /* reduced */
-
-  background: rgba(255,255,255,0.02);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: none;
 }
 
 /* =========================
-   HEADER (MOVES UP)
+   HEADER (FIXED PROPERLY)
 ========================= */
 .header {
   position: fixed;
-  top: 20px; /* moved up */
+  top: 0;
   left: 0;
   right: 0;
 
@@ -118,11 +108,13 @@ h1, h2, h3 {
   justify-content: space-between;
   align-items: center;
 
-  padding: 10px 16px;
+  padding: 12px 16px;
   background: #0b1220;
 
   flex-wrap: wrap;
   gap: 10px;
+
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 /* LOGO */
@@ -157,10 +149,6 @@ h1, h2, h3 {
 .hero {
   text-align: center;
   padding: 20px;
-}
-
-.hero h1 {
-  margin-bottom: 10px;
 }
 
 .hero p {
@@ -219,10 +207,12 @@ h1, h2, h3 {
 
 .card h3 {
   color: var(--accent);
+  margin-top: 0;
 }
 
 .card a {
   color: var(--text-main);
+  text-decoration: none;
 }
 
 .card a:hover {
@@ -251,11 +241,10 @@ footer {
 
   body {
     font-size: 16px;
-    padding-top: 80px;
+    padding-top: 92px;
   }
 
   .header {
-    top: 20px;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -273,10 +262,19 @@ footer {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    gap: var(--space-md);
+    padding-bottom: 10px;
   }
 
   .card {
     flex: 0 0 75%;
     max-width: 280px;
+    scroll-snap-align: center;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .card-grid::-webkit-scrollbar {
+    display: none;
   }
 }
