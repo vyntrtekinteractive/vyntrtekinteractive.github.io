@@ -16,26 +16,18 @@ html {
 }
 
 /* =========================
-   GLOBAL FIX (IMPORTANT)
+   GLOBAL FIX
 ========================= */
 html, body {
   overflow-x: hidden;
 }
 
 /* =========================
-   PAGE HEADINGS (GLOBAL)
-========================= */
-.container h1,
-.container h2,
-.container h3 {
-  color: #60a5fa;
-}
-/* =========================
    BASE
 ========================= */
 body {
   margin: 0;
- font-family: "SF Pro Display", "Inter", Arial, sans-serif;
+  font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #111c33 0%, #0f172a 60%);
   color: #e2e8f0;
 
@@ -63,6 +55,17 @@ body {
   }
 }
 
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* =========================
    TRUST BAR
 ========================= */
@@ -76,7 +79,7 @@ body {
 }
 
 /* =========================
-   HEADER (NEW SAFE ADDITION)
+   HEADER (FIXED LAYOUT)
 ========================= */
 .header {
   display: flex;
@@ -85,24 +88,31 @@ body {
 
   padding: 10px 16px;
   background: #0b1220;
+
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
+/* LOGO */
 .logo {
-  width: 150px;
+  width: 140px;
   height: auto;
   cursor: pointer;
 }
 
+/* NAV */
 .nav {
   display: flex;
-  gap: 12px;
-  margin-left: auto;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .nav a {
   color: #e2e8f0;
   text-decoration: none;
   font-size: 14px;
+  transition: 0.2s ease;
 }
 
 .nav a:hover {
@@ -110,84 +120,67 @@ body {
 }
 
 /* =========================
-   EMAIL HIGHLIGHT (CLICKABLE)
-========================= */
-.email {
-  color: #60a5fa;
-  font-weight: bold;
-  text-decoration: none;
-  transition: 0.2s ease;
-}
-
-.email:hover {
-  text-decoration: underline;
-  opacity: 0.9;
-}
-
-/* =========================
-   HERO (FIXED TEXT OVERFLOW)
+   HERO
 ========================= */
 .hero {
   text-align: center;
-  padding: 10px var(--space-md) 20px;
+  padding: 20px;
 }
 
 .hero h1 {
-  font-size: 28px;
-  margin-bottom: var(--space-sm);
-  color: #60a5fa; /* ADDED */
+  margin-bottom: 10px;
 }
 
 .hero p {
-  color: #94a3b8;
   max-width: 600px;
   margin: auto;
+  color: #94a3b8;
 
-  padding: 0 10px;
-  box-sizing: border-box;
-
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: break-word;
-  white-space: normal;
 }
 
 /* =========================
-   DESKTOP GRID (STABLE)
+   CONTAINER
+========================= */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  flex: 1;
+}
+
+/* =========================
+   CAROUSEL GRID (DESKTOP)
 ========================= */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--space-md);
-
-  padding: var(--space-md);
-  max-width: 900px;
-  margin: auto;
 }
 
 /* =========================
-   CARD
+   CARDS
 ========================= */
 .card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
-
   padding: var(--space-md);
-  transition: all 0.25s ease;
-
-  animation: fadeIn 0.9s ease-out;
 
   text-align: center;
+
+  animation: cardFade 0.6s ease;
+  transition: 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(96,165,250,0.5);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .card h3 {
-  color: #60a5fa; /* CONFIRMED BLUE */
+  color: #60a5fa;
   margin-top: 0;
 }
 
@@ -201,156 +194,63 @@ body {
 }
 
 /* =========================
-   CARD GLOW EFFECT
-========================= */
-.card {
-  position: relative;
-
-  /* existing styles remain */
-
-  box-shadow: 0 0 0 rgba(96,165,250,0); /* base (no glow) */
-}
-
-/* SOFT AMBIENT GLOW */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  border-radius: inherit;
-
-  background: radial-gradient(
-    circle at top,
-    rgba(96,165,250,0.15),
-    transparent 70%
-  );
-
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* HOVER GLOW (DESKTOP) */
-.card:hover {
-  box-shadow:
-    0 0 12px rgba(96,165,250,0.4),
-    0 0 30px rgba(96,165,250,0.25);
-
-  border-color: rgba(96,165,250,0.6);
-}
-
-/* OPTIONAL: SLIGHT INTENSITY ON ACTIVE (MOBILE TAP) */
-.card:active {
-  box-shadow:
-    0 0 10px rgba(96,165,250,0.5),
-    0 0 20px rgba(96,165,250,0.3);
-}
-
-/* =========================
-   CONTENT
-========================= */
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: var(--space-lg) var(--space-md);
-  flex: 1;
-}
-
-/* =========================
-   FOOTER
+   FOOTER (CLEAN)
 ========================= */
 footer {
   text-align: center;
   font-size: var(--text-small);
   color: #64748b;
-  padding: var(--space-lg) 0;
 
+  padding: 18px 10px;
   border-top: 1px solid rgba(255,255,255,0.05);
   background: rgba(255,255,255,0.01);
 
   margin-top: auto;
 }
 
+/* =========================
+   MOBILE FIXES
+========================= */
 @media (max-width: 600px) {
 
-  /* =========================
-     BASE MOBILE TYPOGRAPHY
-  ========================= */
   body {
     font-size: 16px;
   }
 
-  .hero h1 {
-    font-size: 22px;
-  }
-
-  .hero p {
-    font-size: 15px;
-  }
-
-  /* =========================
-     MOBILE HEADER FIX (SAFE LAYOUT)
-  ========================= */
+  /* HEADER STACK SAFETY */
   .header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 10px 12px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .logo {
-    width: 130px;
-    margin: 0;
+    width: 120px;
   }
 
   .nav {
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: flex-end;
-    gap: 8px;
-
-    width: 100%;
-    margin-top: 6px;
+    justify-content: flex-start;
+    gap: 10px;
   }
 
-  .nav a {
-    font-size: 13px;
-    white-space: nowrap;
+  .hero {
+    padding: 16px;
   }
 
-  /* =========================
-     SWIPE CAROUSEL (UNCHANGED)
-  ========================= */
+  /* CAROUSEL BECOMES SWIPE */
   .card-grid {
     display: flex;
     overflow-x: auto;
-
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-
     gap: var(--space-md);
-    padding: var(--space-md);
-
-    -webkit-overflow-scrolling: touch;
-
-    align-items: stretch;
+    padding-bottom: 10px;
   }
 
   .card {
     flex: 0 0 75%;
     max-width: 280px;
-
     scroll-snap-align: center;
-    scroll-snap-stop: always;
-
     white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: anywhere;
-
-    margin: 0;
-    transform: none !important;
+    word-break: break-word;
   }
 
   .card-grid::-webkit-scrollbar {
