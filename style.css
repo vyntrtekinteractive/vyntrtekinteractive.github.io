@@ -9,6 +9,12 @@
 
   --text-base: 16px;
   --text-small: 14px;
+
+  /* NEW TEXT SYSTEM */
+  --text-main: #d1d9e6;     /* softer than pure white */
+  --text-muted: #94a3b8;
+  --text-heading: #cbd5e1;
+  --accent: #60a5fa;
 }
 
 html {
@@ -29,7 +35,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle at top, #111c33 0%, #0f172a 60%);
-  color: #e2e8f0;
+  color: var(--text-main);
 
   display: flex;
   flex-direction: column;
@@ -39,6 +45,30 @@ body {
   line-height: 1.6;
 
   animation: fadeIn 0.6s ease-out;
+}
+
+/* =========================
+   TEXT DEFAULTS (NEW CONSISTENCY LAYER)
+========================= */
+p, li {
+  color: var(--text-main);
+}
+
+h1, h2, h3 {
+  color: var(--text-heading);
+}
+
+h1 {
+  color: var(--accent);
+}
+
+h2, h3 {
+  color: var(--accent);
+}
+
+/* muted helper (optional use) */
+.muted {
+  color: var(--text-muted);
 }
 
 /* =========================
@@ -72,14 +102,14 @@ body {
 .trust-bar {
   text-align: center;
   font-size: 12px;
-  color: #94a3b8;
+  color: var(--text-muted);
   padding: 8px 0;
   border-bottom: 1px solid rgba(255,255,255,0.05);
   background: rgba(255,255,255,0.02);
 }
 
 /* =========================
-   HEADER (FIXED LAYOUT)
+   HEADER
 ========================= */
 .header {
   display: flex;
@@ -109,14 +139,14 @@ body {
 }
 
 .nav a {
-  color: #e2e8f0;
+  color: var(--text-main);
   text-decoration: none;
   font-size: 14px;
   transition: 0.2s ease;
 }
 
 .nav a:hover {
-  color: #60a5fa;
+  color: var(--accent);
 }
 
 /* =========================
@@ -134,7 +164,7 @@ body {
 .hero p {
   max-width: 600px;
   margin: auto;
-  color: #94a3b8;
+  color: var(--text-muted);
 
   overflow-wrap: break-word;
   word-break: break-word;
@@ -151,9 +181,8 @@ body {
 }
 
 /* =========================
-   CAROUSEL GRID (DESKTOP)
+   CAROUSEL
 ========================= */
-/* UNIFIED CAROUSEL (DESKTOP + MOBILE) */
 .card-grid {
   display: flex;
   gap: var(--space-md);
@@ -170,9 +199,9 @@ body {
    CARDS
 ========================= */
 .card {
-  flex: 0 0 260px;   /* 🔥 locks width → prevents stacking */
+  flex: 0 0 260px;
   max-width: 260px;
-  
+
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
@@ -190,26 +219,26 @@ body {
 }
 
 .card h3 {
-  color: #60a5fa;
+  color: var(--accent);
   margin-top: 0;
 }
 
 .card a {
-  color: #e2e8f0;
+  color: var(--text-main);
   text-decoration: none;
 }
 
 .card a:hover {
-  color: #60a5fa;
+  color: var(--accent);
 }
 
 /* =========================
-   FOOTER (CLEAN)
+   FOOTER
 ========================= */
 footer {
   text-align: center;
   font-size: var(--text-small);
-  color: #64748b;
+  color: var(--text-muted);
 
   padding: 18px 10px;
   border-top: 1px solid rgba(255,255,255,0.05);
@@ -219,7 +248,7 @@ footer {
 }
 
 /* =========================
-   MOBILE FIXES
+   MOBILE FIXES (SAFE)
 ========================= */
 @media (max-width: 600px) {
 
@@ -227,7 +256,6 @@ footer {
     font-size: 16px;
   }
 
-  /* HEADER STACK SAFETY */
   .header {
     flex-direction: column;
     align-items: flex-start;
@@ -246,7 +274,6 @@ footer {
     padding: 16px;
   }
 
-  /* CAROUSEL BECOMES SWIPE */
   .card-grid {
     display: flex;
     overflow-x: auto;
