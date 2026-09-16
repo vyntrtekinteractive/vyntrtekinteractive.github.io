@@ -15,11 +15,14 @@
   --text-heading: #cbd5e1;
   --accent: #60a5fa;
 
-  /* FIX: consistent header offset */
+  /* header offsets */
   --header-height: 72px;
   --header-height-mobile: 92px;
 }
 
+/* =========================
+   GLOBAL
+========================= */
 html {
   scroll-behavior: smooth;
 }
@@ -90,14 +93,14 @@ h1, h2, h3 {
 }
 
 /* =========================
-   TRUST BAR (REMOVED VISUAL BUT SAFE)
+   TRUST BAR (hidden cleanly)
 ========================= */
 .trust-bar {
   display: none;
 }
 
 /* =========================
-   HEADER (FIXED)
+   HEADER (GLASS + FIXED)
 ========================= */
 .header {
   position: fixed;
@@ -112,12 +115,24 @@ h1, h2, h3 {
   align-items: center;
 
   padding: 12px 16px;
-  background: #0b1220;
+
+  /* glass effect */
+  background: rgba(11, 18, 32, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 
   flex-wrap: wrap;
   gap: 10px;
 
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: all 0.25s ease;
+}
+
+/* shrink-on-scroll state */
+.header.shrink {
+  padding: 6px 16px;
+  background: rgba(11, 18, 32, 0.85);
 }
 
 /* LOGO */
@@ -249,16 +264,18 @@ footer {
 
   .header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
   .logo {
-    width: 120px;
+    width: 130px;
+    margin-bottom: 6px;
   }
 
   .nav {
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
   }
 
   .card-grid {
