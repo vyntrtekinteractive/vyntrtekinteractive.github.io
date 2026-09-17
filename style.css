@@ -1,4 +1,5 @@
 :root {
+
   --space-xs: 6px;
   --space-sm: 12px;
   --space-md: 20px;
@@ -15,7 +16,6 @@
   --text-heading: #cbd5e1;
   --accent: #60a5fa;
 
-  /* FIX: consistent header offset */
   --header-height: 72px;
   --header-height-mobile: 92px;
 }
@@ -31,6 +31,7 @@ html, body {
 /* =========================
    BASE
 ========================= */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -52,6 +53,7 @@ body {
 /* =========================
    TEXT SYSTEM
 ========================= */
+
 p, li {
   color: var(--text-main);
 }
@@ -67,38 +69,21 @@ h1, h2, h3 {
 /* =========================
    ANIMATION
 ========================= */
+
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes cardFade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* =========================
-   TRUST BAR (REMOVED VISUAL BUT SAFE)
+   HEADER
 ========================= */
-.trust-bar {
-  display: none;
-}
 
-/* =========================
-   HEADER (FIXED)
-========================= */
 .header {
   position: fixed;
   top: 0;
@@ -120,14 +105,12 @@ h1, h2, h3 {
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-/* LOGO */
 .logo {
   width: 140px;
   height: auto;
   cursor: pointer;
 }
 
-/* NAV */
 .nav {
   display: flex;
   gap: 14px;
@@ -149,6 +132,7 @@ h1, h2, h3 {
 /* =========================
    HERO
 ========================= */
+
 .hero {
   text-align: center;
   padding: 20px;
@@ -163,6 +147,7 @@ h1, h2, h3 {
 /* =========================
    CONTAINER
 ========================= */
+
 .container {
   max-width: 900px;
   margin: auto;
@@ -171,8 +156,9 @@ h1, h2, h3 {
 }
 
 /* =========================
-   CAROUSEL
+   CAROUSEL CORE
 ========================= */
+
 .card-grid {
   display: flex;
   gap: var(--space-md);
@@ -181,6 +167,7 @@ h1, h2, h3 {
   overflow-y: hidden;
 
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 
   padding-bottom: 10px;
 
@@ -197,20 +184,12 @@ h1, h2, h3 {
 .card {
   flex: 0 0 260px;
   flex-shrink: 0;
-}
-
-/* =========================
-   CARDS
-========================= */
-.card {
-  flex: 0 0 260px;
-  max-width: 260px;
 
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--radius-md);
-  padding: var(--space-md);
 
+  padding: var(--space-md);
   text-align: center;
 
   animation: cardFade 0.6s ease;
@@ -218,8 +197,9 @@ h1, h2, h3 {
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: rgba(96,165,250,0.5);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
 }
 
 .card h3 {
@@ -227,18 +207,67 @@ h1, h2, h3 {
   margin-top: 0;
 }
 
-.card a {
-  color: var(--text-main);
-  text-decoration: none;
+/* =========================
+   DESKTOP 3-CARD VIEW + NAV BUTTONS
+========================= */
+
+.carousel-wrapper {
+  position: relative;
 }
 
-.card a:hover {
-  color: var(--accent);
+/* desktop only */
+@media (min-width: 601px) {
+
+  .carousel-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .card-grid {
+    width: 840px; /* ~3 cards */
+    margin: auto;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(96,165,250,0.2);
+    color: white;
+    font-size: 20px;
+
+    cursor: pointer;
+    z-index: 10;
+
+    transition: 0.2s ease;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(96,165,250,0.4);
+  }
+
+  .carousel-btn.left { left: -10px; }
+  .carousel-btn.right { right: -10px; }
+}
+
+/* hide buttons on mobile */
+@media (max-width: 600px) {
+  .carousel-btn {
+    display: none;
+  }
 }
 
 /* =========================
    FOOTER
 ========================= */
+
 footer {
   text-align: center;
   font-size: var(--text-small);
@@ -254,6 +283,7 @@ footer {
 /* =========================
    MOBILE FIXES
 ========================= */
+
 @media (max-width: 600px) {
 
   body {
@@ -266,7 +296,7 @@ footer {
     align-items: flex-start;
   }
 
-  /* ✅ NEW: center logo horizontally only */
+  /* center logo horizontally */
   .logo-wrap {
     width: 100%;
     display: flex;
@@ -282,23 +312,10 @@ footer {
     gap: 10px;
   }
 
-  .card-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: var(--space-md);
-    padding-bottom: 10px;
-  }
-
   .card {
     flex: 0 0 75%;
     max-width: 280px;
     scroll-snap-align: center;
-    white-space: normal;
     word-break: break-word;
-  }
-
-  .card-grid::-webkit-scrollbar {
-    display: none;
   }
 }
