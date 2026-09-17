@@ -20,6 +20,10 @@
   --header-height-mobile: 92px;
 }
 
+/* =========================
+   GLOBAL
+========================= */
+
 html {
   scroll-behavior: smooth;
 }
@@ -175,6 +179,9 @@ h1, h2, h3 {
 
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .card-grid::-webkit-scrollbar {
@@ -208,7 +215,7 @@ h1, h2, h3 {
 }
 
 /* =========================
-   DESKTOP 3-CARD VIEW + NAV BUTTONS
+   DESKTOP FIX (CENTER + 3 CARDS PERFECT)
 ========================= */
 
 .carousel-wrapper {
@@ -219,26 +226,20 @@ h1, h2, h3 {
 
   .carousel-wrapper {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
   }
 
   .card-grid {
-    /* FIX 1: Ensures padding doesn't expand card width */
-    box-sizing: border-box;
-    
-    /* FIX 2: Fit 3 cards (260px each) + 2 gaps (20px each) cleanly */
-    width: 820px; 
-    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
 
-    /* FIX 3: Center the cards horizontal alignment */
     justify-content: center;
   }
 
-  /* FIX 4: Explicitly fix desktop card width calculation */
   .card {
-    flex: 0 0 220px; /* Reduced base width so card + padding fits 820px container */
-    box-sizing: border-box;
+    width: calc((900px - 40px) / 3);
+    max-width: 280px;
   }
 
   .carousel-btn {
@@ -266,9 +267,16 @@ h1, h2, h3 {
     background: rgba(96,165,250,0.4);
   }
 
-  .carousel-btn.left { left: -20px; }
-  .carousel-btn.right { right: -20px; }
+  .carousel-btn.left { left: -10px; }
+  .carousel-btn.right { right: -10px; }
 }
+
+@media (max-width: 600px) {
+  .carousel-btn {
+    display: none;
+  }
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -286,7 +294,7 @@ footer {
 }
 
 /* =========================
-   MOBILE FIXES
+   MOBILE FIXES (UNCHANGED)
 ========================= */
 
 @media (max-width: 600px) {
@@ -301,7 +309,6 @@ footer {
     align-items: flex-start;
   }
 
-  /* center logo horizontally */
   .logo-wrap {
     width: 100%;
     display: flex;
