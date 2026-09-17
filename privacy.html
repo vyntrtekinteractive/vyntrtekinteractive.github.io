@@ -62,10 +62,10 @@
 <!-- PLATFORM SELECTOR -->
 <div class="platform-select">
   <p>Select Platform:</p>
-  <button onclick="showPlatform('general')" class="active">General</button>
-  <button onclick="showPlatform('facebook')">Facebook Instant</button>
-  <button onclick="showPlatform('play')">Google Play</button>
-  <button onclick="showPlatform('samsung')">Samsung</button>
+  <button onclick="showPlatform('general', this)" class="active">General</button>
+  <button onclick="showPlatform('facebook', this)">Facebook Instant</button>
+  <button onclick="showPlatform('play', this)">Google Play</button>
+  <button onclick="showPlatform('samsung', this)">Samsung</button>
 </div>
 
 <!-- GENERAL -->
@@ -141,12 +141,15 @@
 <footer>© 2026 Vyntrtek Interactive</footer>
 
 <script>
-function showPlatform(type) {
+function showPlatform(type, btn) {
   document.querySelectorAll(".platform").forEach(el => el.style.display = "none");
   document.querySelector("." + type).style.display = "block";
 
-  document.querySelectorAll(".platform-select button").forEach(btn => btn.classList.remove("active"));
-  event.target.classList.add("active");
+  document.querySelectorAll(".platform-select button").forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+
+  // update URL hash (important for D-U-N-S / review linking)
+  window.location.hash = type;
 }
 
 /* ACCORDION */
@@ -155,6 +158,19 @@ document.querySelectorAll(".accordion").forEach(item => {
     const panel = item.nextElementSibling;
     panel.style.display = panel.style.display === "block" ? "none" : "block";
   });
+});
+
+/* AUTO LOAD FROM URL HASH */
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash.replace("#", "");
+  const valid = ["general", "facebook", "play", "samsung"];
+
+  if (valid.includes(hash)) {
+    const btn = Array.from(document.querySelectorAll(".platform-select button"))
+      .find(b => b.textContent.toLowerCase().includes(hash));
+
+    showPlatform(hash, btn);
+  }
 });
 </script>
 
