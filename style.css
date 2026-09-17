@@ -1,186 +1,7 @@
-:root {
-  --space-xs: 6px;
-  --space-sm: 12px;
-  --space-md: 20px;
-  --space-lg: 32px;
-  --space-xl: 48px;
-
-  --radius-md: 16px;
-
-  --text-base: 16px;
-  --text-small: 14px;
-
-  --text-main: #d1d9e6;
-  --text-muted: #94a3b8;
-  --text-heading: #cbd5e1;
-  --accent: #60a5fa;
-
-  /* FIX: consistent header offset */
-  --header-height: 72px;
-  --header-height-mobile: 92px;
-}
-
 /* =========================
-   GLOBAL
+   CAROUSEL (FIXED - NO BRIGHT SCROLL BARS)
 ========================= */
-html {
-  scroll-behavior: smooth;
-}
 
-html, body {
-  overflow-x: hidden;
-}
-
-/* =========================
-   BASE
-========================= */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle at top, #111c33 0%, #0f172a 60%);
-  color: var(--text-main);
-
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-
-  font-size: var(--text-base);
-  line-height: 1.6;
-
-  animation: fadeIn 0.6s ease-out;
-
-  padding-top: var(--header-height);
-}
-
-/* =========================
-   TEXT SYSTEM
-========================= */
-p, li {
-  color: var(--text-main);
-}
-
-h1, h2, h3 {
-  color: var(--accent);
-}
-
-.muted {
-  color: var(--text-muted);
-}
-
-/* =========================
-   ANIMATION
-========================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes cardFade {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================
-   TRUST BAR (REMOVED VISUAL BUT SAFE)
-========================= */
-.trust-bar {
-  display: none;
-}
-
-/* =========================
-   HEADER (FIXED)
-========================= */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 1000;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 12px 16px;
-  background: #0b1220;
-
-  flex-wrap: wrap;
-  gap: 10px;
-
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-/* LOGO */
-.logo {
-  width: 140px;
-  height: auto;
-  cursor: pointer;
-}
-
-/* NAV */
-.nav {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.nav a {
-  color: var(--text-main);
-  text-decoration: none;
-  font-size: 14px;
-  transition: 0.2s ease;
-}
-
-.nav a:hover {
-  color: var(--accent);
-}
-
-/* =========================
-   HERO
-========================= */
-.hero {
-  text-align: center;
-  padding: 20px;
-}
-
-.hero p {
-  max-width: 600px;
-  margin: auto;
-  color: var(--text-muted);
-}
-
-/* =========================
-   CONTAINER (🔧 FIXED WHITE GAP ISSUE)
-========================= */
-.container {
-  max-width: 900px;
-  margin: 0 auto;          /* removed auto vertical spacing issue */
-  padding: 16px 20px 4px;  /* reduced bottom padding */
-  flex: 1;
-}
-
-/* 🔧 REMOVE VERTICAL GAP BETWEEN CAROUSELS */
-.container + .container {
-  margin-top: -6px; /* pulls sections together slightly */
-}
-
-/* =========================
-   CAROUSEL
-========================= */
 .card-grid {
   display: flex;
   gap: var(--space-md);
@@ -188,111 +9,26 @@ h1, h2, h3 {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 
-  padding-bottom: 6px; /* reduced white strip under cards */
+  padding-bottom: 10px;
 
   -webkit-overflow-scrolling: touch;
+
+  /* FIX: remove visible scrollbar space */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge legacy */
 }
 
-/* =========================
-   CARDS
-========================= */
-.card {
-  flex: 0 0 260px;
-  max-width: 260px;
-
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-
-  text-align: center;
-
-  animation: cardFade 0.6s ease;
-  transition: 0.25s ease;
+/* FIX: Chrome / Edge / Safari scrollbar removal */
+.card-grid::-webkit-scrollbar {
+  height: 0px;
+  display: none;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(96,165,250,0.5);
+/* optional: ensures no scroll track flash on some devices */
+.card-grid::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.card h3 {
-  color: var(--accent);
-  margin-top: 0;
-}
-
-.card a {
-  color: var(--text-main);
-  text-decoration: none;
-}
-
-.card a:hover {
-  color: var(--accent);
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  text-align: center;
-  font-size: var(--text-small);
-  color: var(--text-muted);
-
-  padding: 18px 10px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  background: rgba(255,255,255,0.01);
-
-  margin-top: auto;
-}
-
-/* =========================
-   MOBILE FIXES
-========================= */
-@media (max-width: 600px) {
-
-  body {
-    font-size: 16px;
-    padding-top: var(--header-height-mobile);
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  /* logo center fix remains untouched */
-  .logo-wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .logo {
-    width: 120px;
-  }
-
-  .nav {
-    justify-content: flex-start;
-    gap: 10px;
-  }
-
-  .card-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: var(--space-md);
-    padding-bottom: 8px;
-  }
-
-  .card {
-    flex: 0 0 75%;
-    max-width: 280px;
-    scroll-snap-align: center;
-    white-space: normal;
-    word-break: break-word;
-  }
-
-  .card-grid::-webkit-scrollbar {
-    display: none;
-  }
+.card-grid::-webkit-scrollbar-thumb {
+  background: transparent;
 }
