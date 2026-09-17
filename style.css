@@ -20,6 +20,9 @@
   --header-height-mobile: 92px;
 }
 
+/* =========================
+   GLOBAL
+========================= */
 html {
   scroll-behavior: smooth;
 }
@@ -161,13 +164,18 @@ h1, h2, h3 {
 }
 
 /* =========================
-   CONTAINER
+   CONTAINER (🔧 FIXED WHITE GAP ISSUE)
 ========================= */
 .container {
   max-width: 900px;
-  margin: auto;
-  padding: 20px;
+  margin: 0 auto;          /* removed auto vertical spacing issue */
+  padding: 16px 20px 4px;  /* reduced bottom padding */
   flex: 1;
+}
+
+/* 🔧 REMOVE VERTICAL GAP BETWEEN CAROUSELS */
+.container + .container {
+  margin-top: -6px; /* pulls sections together slightly */
 }
 
 /* =========================
@@ -180,7 +188,7 @@ h1, h2, h3 {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
 
-  padding-bottom: 10px;
+  padding-bottom: 6px; /* reduced white strip under cards */
 
   -webkit-overflow-scrolling: touch;
 }
@@ -252,7 +260,7 @@ footer {
     align-items: flex-start;
   }
 
-  /* ✅ NEW: center logo horizontally only */
+  /* logo center fix remains untouched */
   .logo-wrap {
     width: 100%;
     display: flex;
@@ -273,7 +281,7 @@ footer {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: var(--space-md);
-    padding-bottom: 10px;
+    padding-bottom: 8px;
   }
 
   .card {
