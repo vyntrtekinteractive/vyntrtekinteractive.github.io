@@ -50,6 +50,7 @@
 
 <div class="header">
   <a href="index.html"><img src="logo.png" class="logo"></a>
+
   <div class="nav">
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
@@ -65,34 +66,38 @@
 <!-- PLATFORM SELECTOR -->
 <div class="platform-select">
   <p>Select Platform:</p>
-  <button onclick="showPlatform('general')" class="active">General</button>
-  <button onclick="showPlatform('facebook')">Facebook Instant</button>
-  <button onclick="showPlatform('play')">Google Play</button>
-  <button onclick="showPlatform('samsung')">Samsung</button>
+  <button onclick="showPlatform('general', this)" class="active">General</button>
+  <button onclick="showPlatform('facebook', this)">Facebook Instant</button>
+  <button onclick="showPlatform('play', this)">Google Play</button>
+  <button onclick="showPlatform('samsung', this)">Samsung</button>
 </div>
 
 <!-- GENERAL -->
 <div class="platform general">
 
-<p>Vyntrtek Interactive respects user privacy and data control rights.</p>
-
-<p>To request deletion of any data associated with our games, please contact:</p>
-
 <p>
-  <a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
+Vyntrtek Interactive respects your privacy and data control rights.
 </p>
 
 <p>
-We do not collect or store personally identifiable information such as names, emails, or contact details.
+To request deletion of any associated data, contact:
 </p>
 
 <p>
-We may process limited non-personal gameplay data (such as session activity and game events) for performance improvement. This data can be removed upon request.
+<a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
 </p>
 
-<p><strong>Processing Time:</strong> All eligible data is deleted or anonymized within 30 days.</p>
+<p>
+We do not store personal identifiers such as name, email, or phone number.
+</p>
 
-<p><strong>Email Subject:</strong> "Data Deletion Request – Vyntrtek Game"</p>
+<p>
+Some non-personal gameplay data may be processed for performance improvement and can be removed upon request.
+</p>
+
+<p>
+<strong>Processing Time:</strong> Up to 30 days for completion.
+</p>
 
 </div>
 
@@ -101,18 +106,18 @@ We may process limited non-personal gameplay data (such as session activity and 
 
 <div class="accordion">Facebook Instant Games Data</div>
 <div class="panel">
-<p>Facebook Instant Games may process gameplay events and platform-provided identifiers under Meta policies.</p>
+<p>Gameplay events and platform identifiers may be processed under Meta policies.</p>
 </div>
 
 <div class="accordion">Request Deletion</div>
 <div class="panel">
-<p>Send deletion requests to:</p>
+<p>Send requests to:</p>
 <p><a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a></p>
 </div>
 
 <div class="accordion">Processing Time</div>
 <div class="panel">
-<p>Requests are processed within 30 days and confirmation is sent via email.</p>
+<p>Deletion requests are processed within 30 days.</p>
 </div>
 
 </div>
@@ -123,70 +128,49 @@ We may process limited non-personal gameplay data (such as session activity and 
 <div class="accordion">App Data & Analytics Overview</div>
 <div class="panel">
 <p>
-We do not require user accounts or store personal identifiers such as name, email, or phone number.
+We do not require accounts or store personal identifiers.
 </p>
 
 <p>
-Our Google Play games use third-party services for analytics and advertising:
+Third-party services used:
 </p>
 
 <ul>
-<li><strong>Google Firebase:</strong> Used for gameplay analytics, crash reporting, and device performance diagnostics.</li>
-<li><strong>Google AdMob:</strong> Used to serve advertisements and may process advertising identifiers (GAID).</li>
+<li><strong>Google Firebase:</strong> Analytics, crash reporting, performance diagnostics.</li>
+<li><strong>Google AdMob:</strong> Advertising and GAID processing.</li>
 </ul>
 </div>
 
 <div class="accordion">Data Deletion Request</div>
 <div class="panel">
 <p>
-You may request deletion or inquiry regarding any associated non-personal data or advertising identifiers.
-</p>
-
-<p>
 Contact: <a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
 </p>
 
 <p>
-Subject Line: <strong>Data Deletion Request - [Game Name]</strong>
+Subject: <strong>Data Deletion Request – [Game Name]</strong>
 </p>
 
 <p>
 Include:
 <br>• Game name
 <br>• Device model & OS version
-<br>• Google Advertising ID (optional but recommended)
+<br>• Advertising ID (optional)
 </p>
 </div>
 
-<div class="accordion">Device-Level Data Controls</div>
+<div class="accordion">Device Controls</div>
 <div class="panel">
-<p>
-You can reset or remove advertising identifiers directly on your device:
-</p>
-
 <ul>
 <li>Settings → Google → Ads → Reset Advertising ID</li>
-<li>Settings → Apps → [Game] → Storage → Clear Data</li>
+<li>Settings → Apps → Game → Clear Data</li>
 </ul>
 </div>
 
 <div class="accordion">Data Retention</div>
 <div class="panel">
 <p>
-Firebase and AdMob automatically handle retention and deletion of analytics and advertising data according to Google’s policies.
-</p>
-
-<p>
-Where applicable, we may instruct third-party providers to process deletion requests within up to 30 days.
-</p>
-</div>
-
-<div class="accordion">Contact</div>
-<div class="panel">
-<p>
-Vyntrtek Interactive<br>
-Email: <a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a><br>
-Website: <a href="https://vyntrtek.com">https://vyntrtek.com</a>
+Third-party services handle retention and deletion under their own policies (up to 30 days for requests).
 </p>
 </div>
 
@@ -197,13 +181,14 @@ Website: <a href="https://vyntrtek.com">https://vyntrtek.com</a>
 
 <div class="accordion">Samsung Platform Data</div>
 <div class="panel">
-<p>Limited gameplay analytics may be used for optimization and performance tracking.</p>
+<p>Limited analytics may be used for performance optimization.</p>
 </div>
 
 <div class="accordion">Request Deletion</div>
 <div class="panel">
-<p>Contact us for deletion requests:</p>
-<p><a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a></p>
+<p>
+Contact: <a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
+</p>
 </div>
 
 </div>
@@ -217,19 +202,35 @@ Last Updated: September 18, 2026
 <footer>© 2026 Vyntrtek Interactive</footer>
 
 <script>
-function showPlatform(type) {
+function showPlatform(type, btn) {
   document.querySelectorAll(".platform").forEach(el => el.style.display = "none");
   document.querySelector("." + type).style.display = "block";
 
-  document.querySelectorAll(".platform-select button").forEach(btn => btn.classList.remove("active"));
-  event.target.classList.add("active");
+  document.querySelectorAll(".platform-select button").forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+
+  window.location.hash = type;
 }
 
+/* ACCORDION */
 document.querySelectorAll(".accordion").forEach(item => {
   item.addEventListener("click", () => {
     const panel = item.nextElementSibling;
     panel.style.display = panel.style.display === "block" ? "none" : "block";
   });
+});
+
+/* HASH SUPPORT */
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash.replace("#", "");
+  const valid = ["general", "facebook", "play", "samsung"];
+
+  if (valid.includes(hash)) {
+    const btn = Array.from(document.querySelectorAll(".platform-select button"))
+      .find(b => b.textContent.toLowerCase().includes(hash));
+
+    showPlatform(hash, btn);
+  }
 });
 </script>
 
