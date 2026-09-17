@@ -6,10 +6,7 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-}
-
+/* PLATFORM SELECTOR */
 .platform-select {
   text-align: center;
   margin-bottom: 20px;
@@ -29,6 +26,7 @@ body {
   background: #60a5fa;
 }
 
+/* ACCORDION */
 .accordion {
   background: rgba(255,255,255,0.05);
   padding: 12px;
@@ -62,102 +60,37 @@ body {
 
 <h1>Terms of Service</h1>
 
-<p><strong>Last Updated:</strong> September 18, 2026</p>
-
-<p>
-Vyntrtek Interactive ("we," "our," or "us") provides mobile applications and games.
-These Terms of Service ("Terms") govern your access to and use of our games, applications, websites, and related services (collectively, the "Services").
-</p>
-
-<p>
-By downloading, installing, or using our Services, you agree to be bound by these Terms.
-If you do not agree, you must not use our Services.
-</p>
-
 <!-- PLATFORM SELECTOR -->
 <div class="platform-select">
   <p>Select Platform:</p>
-  <button onclick="showPlatform('general')" class="active">General</button>
-  <button onclick="showPlatform('play')">Google Play</button>
-  <button onclick="showPlatform('facebook')">Facebook Instant</button>
-  <button onclick="showPlatform('samsung')">Samsung</button>
+  <button onclick="showPlatform('general', this)" class="active">General</button>
+  <button onclick="showPlatform('facebook', this)">Facebook Instant</button>
+  <button onclick="showPlatform('play', this)">Google Play</button>
+  <button onclick="showPlatform('samsung', this)">Samsung</button>
 </div>
 
 <!-- GENERAL -->
 <div class="platform general">
 
-<h3>1. Platform Rules & Compliance</h3>
-
-<p>When using our Services, you must comply with all applicable platform rules:</p>
-
-<ul>
-  <li><strong>Google Play:</strong> Google Play Terms and Developer Policies</li>
-  <li><strong>Facebook Instant Games:</strong> Meta Platform Policies and Community Standards</li>
-  <li><strong>Samsung Galaxy Store:</strong> Samsung distribution and store policies</li>
-</ul>
-
-<p>Reverse engineering, cheating, or exploiting game systems is strictly prohibited.</p>
-
-<h3>2. Intellectual Property</h3>
 <p>
-All content, including game assets, code, design, branding, and visuals are owned by Vyntrtek Interactive.
-You are granted a limited, non-exclusive, non-transferable license for personal entertainment only.
+Vyntrtek Interactive provides mobile games and applications for entertainment purposes.
 </p>
 
-<h3>3. Data & Third-Party Services</h3>
 <p>
-We may use third-party services such as Firebase (analytics, crash reporting) and Google AdMob (advertising).
-These services may collect non-personal technical data as described in our Privacy Policy.
+By downloading or playing our games, you agree to use them in accordance with these Terms and applicable platform rules.
 </p>
 
-<h3>4. Disclaimer</h3>
 <p>
-Services are provided "as is" without warranties of any kind. We do not guarantee uninterrupted or error-free operation.
+We may update, modify, or discontinue games or features at any time without notice.
 </p>
 
-<h3>5. Limitation of Liability</h3>
 <p>
-We are not liable for indirect, incidental, or consequential damages arising from use of our Services.
+All gameplay is provided "as is" without warranties of any kind.
 </p>
 
-<h3>6. Changes</h3>
 <p>
-We may update these Terms at any time. Continued use of our Services means acceptance of updated Terms.
+Users must be at least 13 years old (or the minimum age required in their region).
 </p>
-
-<h3>7. Contact</h3>
-<p>
-Email: <a href="mailto:support@vyntrtek.com">support@vyntrtek.com</a><br>
-Website: <a href="https://vyntrtek.com">https://vyntrtek.com</a>
-</p>
-
-</div>
-
-<!-- GOOGLE PLAY -->
-<div class="platform play" style="display:none;">
-
-<div class="accordion">Google Play Compliance</div>
-<div class="panel">
-<p>You must comply with all Google Play Developer Program Policies and applicable laws when using our apps.</p>
-</div>
-
-<div class="accordion">Analytics & Ads</div>
-<div class="panel">
-<p>We use Firebase and AdMob to improve gameplay performance and display ads in free versions of our games.</p>
-</div>
-
-<div class="accordion">Data Use</div>
-<div class="panel">
-<p>Only non-personal technical and gameplay data is collected for analytics and optimization purposes.</p>
-</div>
-
-<div class="accordion">Contact</div>
-<div class="panel">
-<p>
-Support: <a href="mailto:support@vyntrtek.com">support@vyntrtek.com</a><br>
-Website: <a href="https://vyntrtek.com">https://vyntrtek.com</a>
-</p>
-</div>
 
 </div>
 
@@ -166,50 +99,137 @@ Website: <a href="https://vyntrtek.com">https://vyntrtek.com</a>
 
 <div class="accordion">Platform Compliance</div>
 <div class="panel">
-<p>You must follow Meta Instant Games policies and community standards.</p>
+<p>Users must comply with Meta Instant Games policies and Facebook platform rules.</p>
+</div>
+
+<div class="accordion">Game Usage</div>
+<div class="panel">
+<p>Cheating, exploitation of bugs, or reverse engineering is strictly prohibited.</p>
 </div>
 
 <div class="accordion">Data Usage</div>
 <div class="panel">
-<p>Limited gameplay analytics may be collected for performance improvement.</p>
+<p>Limited gameplay analytics may be collected to improve performance and stability.</p>
 </div>
+
+</div>
+
+<!-- GOOGLE PLAY -->
+<div class="platform play" style="display:none;">
+
+<h2>Terms of Service (Google Play)</h2>
+
+<p>
+<strong>Vyntrtek Interactive</strong> ("we," "our," or "us") provides mobile applications and games. These Terms govern your use of our Services on Google Play.
+</p>
+
+<h3>1. Platform Rules</h3>
+
+<ul>
+<li>You must comply with Google Play Developer Policies and Terms of Service.</li>
+<li>Unauthorized modification, reverse engineering, or cheating is prohibited.</li>
+</ul>
+
+<h3>2. Intellectual Property</h3>
+
+<p>
+All game content, visuals, code, branding, and assets remain the property of Vyntrtek Interactive.
+</p>
+
+<p>
+You are granted a limited, non-transferable license to use our games for personal entertainment only.
+</p>
+
+<h3>3. Data & Third-Party Services</h3>
+
+<ul>
+<li>We use Firebase for analytics and crash reporting.</li>
+<li>We use AdMob for advertising in free games.</li>
+<li>Third-party services operate under their own policies.</li>
+</ul>
+
+<h3>4. No Warranty</h3>
+
+<p>
+Games are provided "as is" without guarantees of uninterrupted or error-free performance.
+</p>
+
+<h3>5. Limitation of Liability</h3>
+
+<p>
+We are not liable for indirect damages arising from use of our services.
+</p>
+
+<h3>6. Changes</h3>
+
+<p>
+We may update these Terms at any time. Continued use means acceptance of updated Terms.
+</p>
+
+<h3>7. Contact</h3>
+
+<ul>
+<li><strong>Email:</strong> <a href="mailto:support@vyntrtek.com">support@vyntrtek.com</a></li>
+<li><strong>Website:</strong> <a href="https://vyntrtek.com">https://vyntrtek.com</a></li>
+</ul>
 
 </div>
 
 <!-- SAMSUNG -->
 <div class="platform samsung" style="display:none;">
 
-<div class="accordion">Platform Compliance</div>
+<div class="accordion">Platform Rules</div>
 <div class="panel">
-<p>You must comply with Samsung Galaxy Store policies and distribution rules.</p>
+<p>Users must follow Samsung Galaxy Store distribution policies.</p>
 </div>
 
-<div class="accordion">Data Handling</div>
+<div class="accordion">Game Usage</div>
 <div class="panel">
-<p>Non-personal gameplay data may be used for optimization and bug fixing.</p>
+<p>Games must not be modified or exploited for unfair advantage.</p>
 </div>
 
 </div>
+
+<!-- CONTACT -->
+<h3>Contact</h3>
+<p>
+<a href="mailto:support@vyntrtek.com">support@vyntrtek.com</a>
+</p>
+
+<p>Last Updated: September 18, 2026</p>
 
 </div>
 
 <footer>© 2026 Vyntrtek Interactive</footer>
 
 <script>
-function showPlatform(type) {
+function showPlatform(type, btn) {
   document.querySelectorAll(".platform").forEach(el => el.style.display = "none");
   document.querySelector("." + type).style.display = "block";
 
-  document.querySelectorAll(".platform-select button").forEach(btn => btn.classList.remove("active"));
-  event.target.classList.add("active");
+  document.querySelectorAll(".platform-select button").forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+
+  window.location.hash = type;
 }
 
-/* accordion */
 document.querySelectorAll(".accordion").forEach(item => {
   item.addEventListener("click", () => {
     const panel = item.nextElementSibling;
     panel.style.display = panel.style.display === "block" ? "none" : "block";
   });
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const hash = window.location.hash.replace("#", "");
+  const valid = ["general", "facebook", "play", "samsung"];
+
+  if (valid.includes(hash)) {
+    const btn = Array.from(document.querySelectorAll(".platform-select button"))
+      .find(b => b.textContent.toLowerCase().includes(hash));
+
+    showPlatform(hash, btn);
+  }
 });
 </script>
 
