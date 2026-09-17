@@ -178,11 +178,25 @@ h1, h2, h3 {
   gap: var(--space-md);
 
   overflow-x: auto;
+  overflow-y: hidden;
+
   scroll-snap-type: x mandatory;
 
   padding-bottom: 10px;
 
   -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.card-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 260px;
+  flex-shrink: 0;
 }
 
 /* =========================
