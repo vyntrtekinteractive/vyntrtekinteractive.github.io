@@ -210,53 +210,37 @@ h1, h2, h3 {
 /* =========================
    DESKTOP 3-CARD VIEW + NAV BUTTONS
 ========================= */
+
 .carousel-wrapper {
   position: relative;
 }
 
-/* DESKTOP CAROUSEL FIX (RESPONSIVE + CENTERED) */
 @media (min-width: 601px) {
 
   .carousel-wrapper {
     display: flex;
-    justify-content: center;
     align-items: center;
   }
 
   .card-grid {
-    width: 100%;
-    max-width: 1040px;
-
-    margin: 0 auto;
-
-    padding-left: 10px;
-    padding-right: 10px;
-
-    scroll-padding-left: 10px;
-    scroll-padding-right: 10px;
+    width: 840px; /* ~3 cards */
+    margin: auto;
   }
 
-  /* EXACT 3 CARDS BUT RESPONSIVE */
-  .card {
-    flex: 0 0 calc((100% - 40px) / 3);
-    max-width: 320px;
-  }
-
-  /* NAV BUTTONS */
   .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
 
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
 
     border: none;
     border-radius: 50%;
 
-    background: rgba(96,165,250,0.25);
+    background: rgba(96,165,250,0.2);
     color: white;
-    font-size: 22px;
+    font-size: 20px;
 
     cursor: pointer;
     z-index: 10;
@@ -265,19 +249,13 @@ h1, h2, h3 {
   }
 
   .carousel-btn:hover {
-    background: rgba(96,165,250,0.45);
+    background: rgba(96,165,250,0.4);
   }
 
-  .carousel-btn.left {
-    left: 6px;
-  }
-
-  .carousel-btn.right {
-    right: 6px;
-  }
+  .carousel-btn.left { left: -10px; }
+  .carousel-btn.right { right: -10px; }
 }
 
-/* MOBILE: disable buttons */
 @media (max-width: 600px) {
   .carousel-btn {
     display: none;
