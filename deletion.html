@@ -25,19 +25,6 @@
   background: #60a5fa;
 }
 
-.accordion {
-  background: rgba(255,255,255,0.05);
-  padding: 12px;
-  border-radius: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.panel {
-  display: none;
-  padding: 10px 0;
-}
-
 .email {
   color: #60a5fa;
   text-decoration: none;
@@ -72,79 +59,101 @@
   <button onclick="showPlatform('samsung', this)">Samsung</button>
 </div>
 
-<!-- GENERAL -->
+<!-- =========================
+     GENERAL
+========================= -->
 <div class="platform general">
 
+<h2>1. Data Deletion Overview</h2>
+
 <p>
-Vyntrtek Interactive respects your privacy and data control rights.
+Vyntrtek Interactive respects user privacy and data control rights.
+We do not store personal identifiers such as names, emails, or phone numbers.
 </p>
+
+<h2>2. How to Request Deletion</h2>
 
 <p>
 To request deletion of any associated data, contact:
 </p>
 
 <p>
-<a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
+<a class="email" href="mailto:support@vyntrtek.com">support@vyntrtek.com</a>
 </p>
 
-<p>
-We do not store personal identifiers such as name, email, or phone number.
-</p>
+<h2>3. Data Scope</h2>
 
 <p>
-Some non-personal gameplay data may be processed for performance improvement and can be removed upon request.
+We may process limited non-personal gameplay data (such as session activity and game events) for performance improvement. This data can be removed upon request.
 </p>
 
+<h2>4. Processing Time</h2>
+
 <p>
-<strong>Processing Time:</strong> Up to 30 days for completion.
+All eligible data is deleted or anonymized within 30 days.
 </p>
 
 </div>
 
-<!-- FACEBOOK -->
+<!-- =========================
+     FACEBOOK
+========================= -->
 <div class="platform facebook" style="display:none;">
 
-<div class="accordion">Facebook Instant Games Data</div>
-<div class="panel">
-<p>Gameplay events and platform identifiers may be processed under Meta policies.</p>
-</div>
+<h2>1. Facebook Instant Games Data</h2>
 
-<div class="accordion">Request Deletion</div>
-<div class="panel">
-<p>Send requests to:</p>
-<p><a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a></p>
-</div>
-
-<div class="accordion">Processing Time</div>
-<div class="panel">
-<p>Deletion requests are processed within 30 days.</p>
-</div>
-
-</div>
-
-<!-- GOOGLE PLAY -->
-<div class="platform play" style="display:none;">
-
-<div class="accordion">App Data & Analytics Overview</div>
-<div class="panel">
 <p>
-We do not require accounts or store personal identifiers.
+Gameplay events and platform identifiers may be processed under Meta policies.
+</p>
+
+<h2>2. Request Deletion</h2>
+
+<p>
+Send requests to:
 </p>
 
 <p>
-Third-party services used:
+<a class="email" href="mailto:support@vyntrtek.com">support@vyntrtek.com</a>
+</p>
+
+<h2>3. Processing Time</h2>
+
+<p>
+Deletion requests are processed within 30 days.
+</p>
+
+</div>
+
+<!-- =========================
+     GOOGLE PLAY (NO ACCORDION, NUMBERED STRUCTURE)
+========================= -->
+<div class="platform play" style="display:none;">
+
+<h2>Google Play – Data Deletion Policy</h2>
+
+<h3>1. App Data & Analytics Overview</h3>
+
+<p>
+We do not require user accounts or store personal identifiers such as name, email, or phone number.
+</p>
+
+<p>
+We use third-party services for analytics and advertising:
 </p>
 
 <ul>
-<li><strong>Google Firebase:</strong> Analytics, crash reporting, performance diagnostics.</li>
-<li><strong>Google AdMob:</strong> Advertising and GAID processing.</li>
+<li><strong>Google Firebase:</strong> Gameplay analytics, crash reporting, and performance diagnostics.</li>
+<li><strong>Google AdMob:</strong> Advertising services using GAID (Advertising ID).</li>
 </ul>
-</div>
 
-<div class="accordion">Data Deletion Request</div>
-<div class="panel">
+<h3>2. Data Deletion Request</h3>
+
 <p>
-Contact: <a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
+To request deletion or inquiry of associated data:
+</p>
+
+<p>
+Email: <a class="email" href="mailto:support@vyntrtek.com">support@vyntrtek.com</a>
 </p>
 
 <p>
@@ -153,43 +162,50 @@ Subject: <strong>Data Deletion Request – [Game Name]</strong>
 
 <p>
 Include:
-<br>• Game name
-<br>• Device model & OS version
-<br>• Advertising ID (optional)
+<br>1. Game name
+<br>2. Device model & OS version
+<br>3. Advertising ID (optional)
 </p>
-</div>
 
-<div class="accordion">Device Controls</div>
-<div class="panel">
-<ul>
-<li>Settings → Google → Ads → Reset Advertising ID</li>
-<li>Settings → Apps → Game → Clear Data</li>
-</ul>
-</div>
+<h3>3. Device-Level Controls</h3>
 
-<div class="accordion">Data Retention</div>
-<div class="panel">
 <p>
-Third-party services handle retention and deletion under their own policies (up to 30 days for requests).
+You may reset or delete advertising identifiers directly:
 </p>
-</div>
+
+<p>
+1. Settings → Google → Ads → Reset Advertising ID<br>
+2. Settings → Apps → Game → Clear Data
+</p>
+
+<h3>4. Data Retention</h3>
+
+<p>
+Third-party providers handle retention and deletion under their own policies (typically up to 30 days).
+</p>
 
 </div>
 
-<!-- SAMSUNG -->
+<!-- =========================
+     SAMSUNG
+========================= -->
 <div class="platform samsung" style="display:none;">
 
-<div class="accordion">Samsung Platform Data</div>
-<div class="panel">
-<p>Limited analytics may be used for performance optimization.</p>
-</div>
+<h2>1. Samsung Platform Data</h2>
 
-<div class="accordion">Request Deletion</div>
-<div class="panel">
 <p>
-Contact: <a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
+Limited gameplay analytics may be used for performance optimization.
 </p>
-</div>
+
+<h2>2. Request Deletion</h2>
+
+<p>
+Contact:
+</p>
+
+<p>
+<a class="email" href="mailto:support@vyntrtek.com">support@vyntrtek.com</a>
+</p>
 
 </div>
 
@@ -212,15 +228,7 @@ function showPlatform(type, btn) {
   window.location.hash = type;
 }
 
-/* ACCORDION */
-document.querySelectorAll(".accordion").forEach(item => {
-  item.addEventListener("click", () => {
-    const panel = item.nextElementSibling;
-    panel.style.display = panel.style.display === "block" ? "none" : "block";
-  });
-});
-
-/* HASH SUPPORT */
+/* optional hash support (consistent with other pages) */
 window.addEventListener("DOMContentLoaded", () => {
   const hash = window.location.hash.replace("#", "");
   const valid = ["general", "facebook", "play", "samsung"];
