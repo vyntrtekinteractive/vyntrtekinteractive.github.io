@@ -252,6 +252,13 @@ footer {
     align-items: flex-start;
   }
 
+  /* ✅ NEW: center logo horizontally only */
+  .logo-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   .logo {
     width: 120px;
   }
