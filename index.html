@@ -17,8 +17,8 @@
 
   <div class="nav">
     <a href="#games">Games</a>
-    <a href="https://wa.me/254728806339" target="_blank">WhatsApp</a>
-    <a href="https://web.facebook.com/profile.php?id=61572329161224" target="_blank">Facebook</a>
+    <a href="#legal">Legal</a>
+    <a href="#support">Support</a>
   </div>
 
 </div>
@@ -51,7 +51,7 @@
       <p>Tap timing stacking challenge</p>
     </div>
 
-    <!-- GAME 2 (COLOR WHEEL FIXED) -->
+    <!-- GAME 2 -->
     <div class="card" onclick="openVideo('color-wheel-demo.mp4')">
 
       <img src="color-wheel-icon-new.png"
@@ -102,7 +102,7 @@
 </div>
 
 <!-- LEGAL -->
-<div class="container">
+<div class="container" id="legal">
 
   <h2 style="color:#60a5fa; text-align:center;">Legal</h2>
 
@@ -126,12 +126,30 @@
   </div>
 </div>
 
+<!-- SUPPORT SECTION -->
+<div class="container" id="support">
+
+  <h2 style="color:#60a5fa; text-align:center;">Support</h2>
+
+  <p style="text-align:center;">
+    For inquiries or support, contact us at:<br>
+    <strong>support@vyntrtek.com</strong>
+  </p>
+
+</div>
+
 <!-- FOOTER -->
 <footer>
-© 2026 Vyntrtek Interactive • Nyamira, Kenya • support@vyntrtek.com
+  <p>© 2026 Vyntrtek Interactive • Nyamira, Kenya</p>
+
+  <p>
+    <a href="https://wa.me/254728806339" target="_blank">WhatsApp</a> •
+    <a href="https://web.facebook.com/profile.php?id=61572329161224" target="_blank">Facebook</a> •
+    support@vyntrtek.com
+  </p>
 </footer>
 
-<!-- VIDEO MODAL (IMPROVED EXIT CONTROL) -->
+<!-- VIDEO MODAL -->
 <div id="videoModal"
      onclick="backgroundClose(event)"
      style="display:none; position:fixed; inset:0; background:#000000dd; justify-content:center; align-items:center;">
@@ -144,7 +162,6 @@
            style="width:100%; border-radius:12px; background:black;">
     </video>
 
-    <!-- CLOSE BUTTON -->
     <div onclick="closeVideo()"
          style="position:absolute; top:-40px; right:0; color:white; font-size:16px; cursor:pointer;">
       ✕ Close
@@ -182,7 +199,6 @@ function closeVideo() {
   modal.style.display = "none";
 }
 
-/* click outside video closes (important UX fix) */
 function backgroundClose(e) {
   if (e.target.id === "videoModal") {
     closeVideo();
