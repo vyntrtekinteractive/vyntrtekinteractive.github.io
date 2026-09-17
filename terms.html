@@ -6,6 +6,10 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+body {
+  font-family: Arial, sans-serif;
+}
+
 .platform-select {
   text-align: center;
   margin-bottom: 20px;
@@ -44,7 +48,8 @@
 <body>
 
 <div class="header">
-  <a href="/"><img src="logo.png" class="logo"></a>
+  <a href="index.html"><img src="logo.png" class="logo"></a>
+
   <div class="nav">
     <a href="index.html">Home</a>
     <a href="privacy.html">Privacy</a>
@@ -57,33 +62,102 @@
 
 <h1>Terms of Service</h1>
 
+<p><strong>Last Updated:</strong> September 18, 2026</p>
+
+<p>
+Vyntrtek Interactive ("we," "our," or "us") provides mobile applications and games.
+These Terms of Service ("Terms") govern your access to and use of our games, applications, websites, and related services (collectively, the "Services").
+</p>
+
+<p>
+By downloading, installing, or using our Services, you agree to be bound by these Terms.
+If you do not agree, you must not use our Services.
+</p>
+
 <!-- PLATFORM SELECTOR -->
 <div class="platform-select">
   <p>Select Platform:</p>
   <button onclick="showPlatform('general')" class="active">General</button>
-  <button onclick="showPlatform('facebook')">Facebook Instant</button>
   <button onclick="showPlatform('play')">Google Play</button>
+  <button onclick="showPlatform('facebook')">Facebook Instant</button>
   <button onclick="showPlatform('samsung')">Samsung</button>
 </div>
 
 <!-- GENERAL -->
 <div class="platform general">
 
-<p>By using Vyntrtek Interactive games, users agree to follow applicable platform rules and policies.</p>
+<h3>1. Platform Rules & Compliance</h3>
 
-<p>Our games are provided for entertainment purposes only.</p>
+<p>When using our Services, you must comply with all applicable platform rules:</p>
 
-<p>We may collect limited non-personal gameplay data to improve game performance and user experience. This data usage is described in our Privacy Policy.</p>
+<ul>
+  <li><strong>Google Play:</strong> Google Play Terms and Developer Policies</li>
+  <li><strong>Facebook Instant Games:</strong> Meta Platform Policies and Community Standards</li>
+  <li><strong>Samsung Galaxy Store:</strong> Samsung distribution and store policies</li>
+</ul>
 
-<p>We are not responsible for any loss, interruptions, or issues that may occur during gameplay.</p>
+<p>Reverse engineering, cheating, or exploiting game systems is strictly prohibited.</p>
 
-<p>Game features, availability, and content may change at any time without notice.</p>
+<h3>2. Intellectual Property</h3>
+<p>
+All content, including game assets, code, design, branding, and visuals are owned by Vyntrtek Interactive.
+You are granted a limited, non-exclusive, non-transferable license for personal entertainment only.
+</p>
 
-<p><strong>Age Requirement:</strong> You must be 13 or older to use Vyntrtek Interactive games.</p>
+<h3>3. Data & Third-Party Services</h3>
+<p>
+We may use third-party services such as Firebase (analytics, crash reporting) and Google AdMob (advertising).
+These services may collect non-personal technical data as described in our Privacy Policy.
+</p>
 
-<p><strong>Changes to Terms:</strong> We may update these Terms at any time. Continued use of our games means you accept the updated Terms.</p>
+<h3>4. Disclaimer</h3>
+<p>
+Services are provided "as is" without warranties of any kind. We do not guarantee uninterrupted or error-free operation.
+</p>
 
-<p><strong>If you do not agree with these Terms, you should not use our games.</strong></p>
+<h3>5. Limitation of Liability</h3>
+<p>
+We are not liable for indirect, incidental, or consequential damages arising from use of our Services.
+</p>
+
+<h3>6. Changes</h3>
+<p>
+We may update these Terms at any time. Continued use of our Services means acceptance of updated Terms.
+</p>
+
+<h3>7. Contact</h3>
+<p>
+Email: <a href="mailto:support@vyntrtek.com">support@vyntrtek.com</a><br>
+Website: <a href="https://vyntrtek.com">https://vyntrtek.com</a>
+</p>
+
+</div>
+
+<!-- GOOGLE PLAY -->
+<div class="platform play" style="display:none;">
+
+<div class="accordion">Google Play Compliance</div>
+<div class="panel">
+<p>You must comply with all Google Play Developer Program Policies and applicable laws when using our apps.</p>
+</div>
+
+<div class="accordion">Analytics & Ads</div>
+<div class="panel">
+<p>We use Firebase and AdMob to improve gameplay performance and display ads in free versions of our games.</p>
+</div>
+
+<div class="accordion">Data Use</div>
+<div class="panel">
+<p>Only non-personal technical and gameplay data is collected for analytics and optimization purposes.</p>
+</div>
+
+<div class="accordion">Contact</div>
+<div class="panel">
+<p>
+Support: <a href="mailto:support@vyntrtek.com">support@vyntrtek.com</a><br>
+Website: <a href="https://vyntrtek.com">https://vyntrtek.com</a>
+</p>
+</div>
 
 </div>
 
@@ -92,43 +166,12 @@
 
 <div class="accordion">Platform Compliance</div>
 <div class="panel">
-<p>Users must comply with Meta Instant Games policies and Facebook platform rules.</p>
+<p>You must follow Meta Instant Games policies and community standards.</p>
 </div>
 
 <div class="accordion">Data Usage</div>
 <div class="panel">
-<p>Gameplay analytics may be collected to improve performance and experience.</p>
-</div>
-
-<div class="accordion">Contact</div>
-<div class="panel">
-<p>
-Contact us at:
-<a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
-</p>
-</div>
-
-</div>
-
-<!-- GOOGLE PLAY -->
-<div class="platform play" style="display:none;">
-
-<div class="accordion">Platform Rules</div>
-<div class="panel">
-<p>Users must follow Google Play policies and developer program guidelines.</p>
-</div>
-
-<div class="accordion">Data Usage</div>
-<div class="panel">
-<p>We may use analytics tools (including Firebase/AdMob) for performance and gameplay improvement.</p>
-</div>
-
-<div class="accordion">Contact</div>
-<div class="panel">
-<p>
-Contact:
-<a href="mailto:support@vyntrtek.com" class="email">support@vyntrtek.com</a>
-</p>
+<p>Limited gameplay analytics may be collected for performance improvement.</p>
 </div>
 
 </div>
@@ -136,19 +179,17 @@ Contact:
 <!-- SAMSUNG -->
 <div class="platform samsung" style="display:none;">
 
-<div class="accordion">Platform Usage</div>
+<div class="accordion">Platform Compliance</div>
 <div class="panel">
-<p>Users agree to Samsung Galaxy Store distribution policies where applicable.</p>
+<p>You must comply with Samsung Galaxy Store policies and distribution rules.</p>
 </div>
 
 <div class="accordion">Data Handling</div>
 <div class="panel">
-<p>Limited gameplay data may be used for optimization and improvement.</p>
+<p>Non-personal gameplay data may be used for optimization and bug fixing.</p>
 </div>
 
 </div>
-
-<p>Last Updated: September 15, 2026</p>
 
 </div>
 
@@ -163,6 +204,7 @@ function showPlatform(type) {
   event.target.classList.add("active");
 }
 
+/* accordion */
 document.querySelectorAll(".accordion").forEach(item => {
   item.addEventListener("click", () => {
     const panel = item.nextElementSibling;
