@@ -21,8 +21,11 @@
 }
 
 /* =========================
-   GLOBAL
+   GLOBAL SAFETY FIX
 ========================= */
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -160,7 +163,7 @@ h1, h2, h3 {
 }
 
 /* =========================
-   CAROUSEL CORE
+   CAROUSEL CORE (FIXED EDGE CUTTING)
 ========================= */
 
 .card-grid {
@@ -173,7 +176,8 @@ h1, h2, h3 {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 
-  padding-bottom: 10px;
+  padding: 10px 16px;          /* 🔥 FIX: breathing room */
+  scroll-padding-inline: 16px; /* 🔥 FIX: snap offset */
 
   -webkit-overflow-scrolling: touch;
 
@@ -187,6 +191,10 @@ h1, h2, h3 {
 .card-grid::-webkit-scrollbar {
   display: none;
 }
+
+/* =========================
+   CARDS
+========================= */
 
 .card {
   flex: 0 0 260px;
@@ -215,7 +223,7 @@ h1, h2, h3 {
 }
 
 /* =========================
-   DESKTOP FIX (CENTER + 3 CARDS PERFECT)
+   DESKTOP FIX (CENTERED + NO CUTTING)
 ========================= */
 
 .carousel-wrapper {
@@ -271,12 +279,6 @@ h1, h2, h3 {
   .carousel-btn.right { right: -10px; }
 }
 
-@media (max-width: 600px) {
-  .carousel-btn {
-    display: none;
-  }
-}
-
 /* =========================
    FOOTER
 ========================= */
@@ -294,7 +296,7 @@ footer {
 }
 
 /* =========================
-   MOBILE FIXES (UNCHANGED)
+   MOBILE (UNCHANGED)
 ========================= */
 
 @media (max-width: 600px) {
